@@ -1,10 +1,12 @@
-# Skills for engineers who want customers
+# Skills for AI-first engineering
 
 The agent skills I use every day, pulled from my own `.claude/skills/` folder. They run in Claude Code, Codex, Cursor, and any agent that reads `SKILL.md` files.
 
-Starting a new product means I get to code again. It doesn't mean I know how to get customers for it. Coding agents made the building part fast. The selling part is still slow, and still yours to figure out. These skills are for that stretch between "it works" and "people pay for it."
+As VP of Engineering at ParkDNA, I moved the team to AI-first. AI writes specs from product conversations, agents build against them, and AI checks the work against what we meant. These skills run that loop. They're the same ones I use on my own products now.
 
-I'm Eban Bisong. Fifteen years building software on small teams. Tech lead at Thoughtworks, technical co-founder at Creative Critique, first engineer hired at ElastiFlow, then VP of Engineering at ParkDNA, where the team went AI-first. AI writes the specs, agents build against them, and AI checks the work. Getting customers is what I'm learning now, in public, and the skills here come out of that.
+Before that, fifteen years building software on small teams. Tech lead at Thoughtworks, technical co-founder at Creative Critique, first engineer hired at ElastiFlow.
+
+Getting customers is the part I'm learning now, in public. Skills for that will land here too, once I trust them.
 
 Want new ones when they ship? [Get them by email](https://ebanbisong.com).
 
