@@ -1,0 +1,12 @@
+{
+  "name": "skills",
+  "version": "0.1.0",
+  "description": "Eban Bisong's agent skills for engineers building their own products.",
+  "author": {
+    "name": "Eban Bisong",
+    "url": "https://github.com/ebisong"
+  },
+  "homepage": "https://github.com/ebisong/skills",
+  "repository": "https://github.com/ebisong/skills",
+  "license": "MIT"
+}

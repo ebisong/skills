@@ -1,0 +1,24 @@
+{
+  "$schema": "https://json.schemastore.org/claude-code-marketplace.json",
+  "name": "ebisong",
+  "description": "Eban Bisong's agent skills",
+  "owner": {
+    "name": "Eban Bisong",
+    "url": "https://github.com/ebisong"
+  },
+  "plugins": [
+    {
+      "name": "skills",
+      "source": "./",
+      "description": "Eban Bisong's agent skills for engineers building their own products.",
+      "author": {
+        "name": "Eban Bisong",
+        "url": "https://github.com/ebisong"
+      },
+      "homepage": "https://github.com/ebisong/skills",
+      "repository": "https://github.com/ebisong/skills",
+      "license": "MIT",
+      "category": "productivity"
+    }
+  ]
+}
