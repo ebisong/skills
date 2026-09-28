@@ -4,7 +4,7 @@ The agent skills I use every day, pulled from my own `.claude/skills/` folder. T
 
 As VP of Engineering at ParkDNA, I moved the team to AI-first. AI writes specs from product conversations, agents build against them, and AI checks the work against what we meant. These skills run that loop. They're the same ones I use on my own products now.
 
-Before that, fifteen years building software on small teams. Tech lead at Thoughtworks, technical co-founder at Creative Critique, first engineer hired at ElastiFlow.
+Before that, fifteen years building software on small teams, at Thoughtworks, Ninety.io, and ElastiFlow.
 
 Getting customers is the part I'm learning now, in public. Skills for that will land here too, once I trust them.
 
