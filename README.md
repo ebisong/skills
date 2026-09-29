@@ -33,7 +33,7 @@ Add `-g` to install them globally instead of into the current project.
 
 ## Skills
 
-None yet. The first one is close.
+- **[well-formed-outcome](skills/well-formed-outcome/SKILL.md).** Takes a fuzzy goal and checks it against seven conditions from NLP, one question at a time, until it's specific enough to build. I run it before every spec I write. `/skills:well-formed-outcome` in Claude Code.
 
 ## Built to Market
 
