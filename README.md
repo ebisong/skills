@@ -2,7 +2,7 @@
 
 The agent skills I use every day, pulled from my own `.claude/skills/` folder. They run in Claude Code, Codex, Cursor, and any agent that reads `SKILL.md` files.
 
-Most recently I ran engineering and moved the team to AI-native. AI writes specs from product conversations, agents build against them, and AI checks the work against what we meant. These skills run that loop. They're the same ones I use on my own products now.
+Most recently I ran engineering and made the team AI-native. AI writes specs from product conversations, agents build against them, and AI checks the work against what we meant. These skills run that loop. They're the same ones I use on my own products now.
 
 Before that, fifteen years building software on small teams.
 
