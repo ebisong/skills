@@ -1,10 +1,8 @@
 # Skills for AI-native engineering
 
-The agent skills I use every day, pulled from my own `.claude/skills/` folder. They run in Claude Code, Codex, Cursor, and any agent that reads `SKILL.md` files.
+The agent skills I use every day when I build software. They run in Claude Code, Codex, Cursor, and any agent that reads `SKILL.md` files.
 
-Most recently I ran engineering and made the team AI-native. AI writes specs from product conversations, agents build against them, and AI checks the work against what we meant. These skills run that loop. They're the same ones I use on my own products now.
-
-Before that, fifteen years building software on small teams.
+I'm adding them one at a time as I clean them up for public use. Hack on them and make them yours.
 
 Getting customers is the part I'm learning now, in public. Skills for that will land here too, once I trust them.
 
