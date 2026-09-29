@@ -1,0 +1,5 @@
+#!/bin/sh
+# Blocks commits that stage a secret. Turn on once per clone:
+#   git config core.hooksPath .githooks
+command -v gitleaks >/dev/null || { echo "gitleaks not installed (brew install gitleaks)"; exit 1; }
+gitleaks git --pre-commit --staged --verbose || { echo "Secret detected! Remove it before committing."; exit 1; }
