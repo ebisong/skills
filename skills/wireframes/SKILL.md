@@ -1,6 +1,6 @@
 ---
 name: wireframes
-description: Turn a statement of work, a brief, call notes, or a plain description of a product into a clickable wireframe catalog, one HTML file that opens in any browser, so a client can see every screen and sign off before development starts. Use when someone wants wireframes, mockups, or screens drawn from requirements, wants to show a client what a project will look like, or brings review feedback on wireframes this skill made.
+description: Turn a statement of work, brief, or call notes into a clickable wireframe file a client can review and sign before development. Use for wireframes, mockups, or feedback on wireframes it made.
 ---
 
 # Wireframes
