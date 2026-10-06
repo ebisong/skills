@@ -6,8 +6,13 @@ name: release-zips
 on:
   push:
     branches: [main]
-    paths: ["skills/**", ".github/workflows/release-zips.yml"]
+    paths: ["skills/**", "scripts/zip-skills.sh", ".github/workflows/release-zips.yml"]
   workflow_dispatch:
+
+# One publish at a time. A newer push cancels an older run that is still going.
+concurrency:
+  group: release-zips
+  cancel-in-progress: true
 
 permissions: {}
 
@@ -28,7 +33,20 @@ jobs:
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
+          # Never let a stale run overwrite zips built from a newer main.
+          head="$(gh api "repos/$GITHUB_REPOSITORY/commits/main" --jq .sha)"
+          if [ "$head" != "$GITHUB_SHA" ]; then
+            echo "main has moved to $head since this run started at $GITHUB_SHA. Skipping; the newer run publishes."
+            exit 0
+          fi
           gh release view downloads >/dev/null 2>&1 || gh release create downloads \
             --title "Skill downloads" \
             --notes "One zip per skill, rebuilt on every change to main. Upload a zip in Claude under Customize > Skills."
-          gh release upload downloads dist/*.zip --clobber
+          # --clobber removes the old file before uploading, so retry rather than leave a
+          # README link dead. If all tries fail, re-run this workflow from the Actions tab.
+          for attempt in 1 2 3; do
+            gh release upload downloads dist/*.zip --clobber && exit 0
+            echo "Upload attempt $attempt failed."
+            sleep $((attempt * 10))
+          done
+          exit 1
