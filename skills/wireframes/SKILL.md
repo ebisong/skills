@@ -33,7 +33,14 @@ Wireframes here are mid-fidelity. Layout and wording are real. Colors, fonts, an
 
 ### 1. Collect the sources
 
-Ask for whatever they have: the statement of work, a brief, proposals, meeting notes, transcripts, emails, sketches, an existing app to replace. Attached files, a folder, or pasted text all work. Read all of it before asking anything.
+Ask for whatever they have: the statement of work, a brief, proposals, meeting notes, transcripts, emails, sketches, an existing app to replace. Attached files, a folder, pasted text, or a connected drive or knowledge base all work.
+
+Read before asking anything, in this order:
+
+1. **Find the document that governs.** Usually the signed statement of work. When there are several versions, use the newest signed one, and tell the person which one you used and why.
+2. **Read that one in full.** It decides what is in scope.
+3. **Skim the rest for detail** the governing document leaves out: exact wording, field lists, rules, examples. With a large pile, read what the governing document refers to and skip the rest.
+4. **Note where documents disagree.** A count that differs between two documents, or a feature one mentions and the other doesn't, becomes an open decision later. Never settle it quietly yourself.
 
 If they have no documents, interview them instead. Start with "Who uses this, and what is the first thing each of them needs to do?"
 
@@ -42,7 +49,7 @@ If they have no documents, interview them instead. Start with "Who uses this, an
 Before drawing anything, give them a short summary to correct:
 
 - **Who uses it.** Each kind of person, how they get in, what they do there.
-- **What it must do.** A numbered list of requirements in plain sentences. Give each an ID with a short prefix for its area, like `BOOK-1`, `BOOK-2`, `DAY-1`. If the documents already number their requirements, keep their numbers. Note where each came from ("SOW section 2.3", "call on Sep 30").
+- **What it must do.** A numbered list of requirements in plain sentences. Give each an ID with a short prefix for its area, like `BOOK-1`, `BOOK-2`, `DAY-1`. If the documents already number their requirements, keep their numbers. Note where each came from ("SOW section 2.3", "call on Sep 30"). Size each one so a person could look at a screen and say yes or no to it. A typical project lands between 15 and 40. Leave out anything no screen could show, like hosting, speed, or security rules.
 - **What is unclear.** Gaps and contradictions you found.
 
 Fix whatever they correct. Do not move on until they agree the list is right, because every screen points back to it.
@@ -78,7 +85,9 @@ Rules for the list:
   - `needed`: no requirement names it, but the product cannot work without it (sign-in, empty states, errors, confirmation emails)
   - `extra`: beyond the requirements. Say why it is worth considering.
 - **Draw the lean set first.** Draw every required and needed screen. List the extras as suggestions and draw only the ones the person picks. Extras are where scope grows quietly, so keep them visible and few.
-- **Think through each person's whole path**, from how they first get in to the last thing they see, including messages sent to them (emails, texts) and what happens when something goes wrong. This is where missed requirements tend to show up.
+- **Think through each person's whole path**, from how they first get in to the last thing they see, including messages sent to them (emails, texts). This is where missed requirements tend to show up.
+- **Then walk each path again looking for what goes wrong.** At every step ask: what if there is nothing here yet, what if it fails, what if they are late, what if the wrong person opens it, what if they come back a week later? Each real answer is a `needed` screen. Documents rarely mention these, and they are a large share of what gets built.
+- **Find the people the documents forget.** Someone creates the accounts, fixes bad data, and answers support requests. If that is the team building the product, they need screens too. Ask who does it.
 
 ### 5. Draw
 
@@ -97,7 +106,7 @@ What makes a screen good:
 - **One primary action per screen.** One filled button. Everything else is secondary.
 - **A one-line explanation** above each screen saying what moment this is and what matters about it.
 - **Every requirement note cites its ID** in `<code>` tags. That is what builds the coverage page.
-- **Unknowns become open decisions** under the screen, phrased as a question the client can answer.
+- **Unknowns become open decisions** under the screen, phrased as a question the client can answer. Keep these for questions where the answer would change the screen or the scope. For small things, pick the sensible default, draw it, and list it in an `info` note titled "Assumed". A review can get through about one open decision per two screens. Many more than that and the important ones get lost.
 - **Buttons that lead somewhere get `data-go`** pointing at the next screen, so the person can click through the main path.
 - **Phone screens** get `data-device="phone"` when the person will mostly be on a phone.
 

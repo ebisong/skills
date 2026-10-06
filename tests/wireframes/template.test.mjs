@@ -129,10 +129,11 @@ test("a product screen outside every journey, an extra with no reason, and a req
       screen({ id: "b3", k: "B3", scope: "extra", reqs: [] }),
       screen({ id: "b4", k: "B4", scope: "required", reqs: [] }),
     ],
-    journeys: [{ role: "Owner", steps: [{ screen: "B1" }, { screen: "B3" }, { screen: "B4" }] }],
+    journeys: [{ role: "Owner", steps: [{ screen: "B1" }, { screen: "B4" }] }],
   });
   const warns = messages(m, "warn");
   assert.ok(warns.some((w) => /B2/.test(w) && /journey/.test(w)));
+  assert.ok(!warns.some((w) => /B3/.test(w) && /journey/.test(w)), "an extra does not need a journey");
   assert.ok(warns.some((w) => /B3/.test(w) && /reason/.test(w)));
   assert.ok(warns.some((w) => /B4/.test(w) && /requirement/.test(w)));
 });

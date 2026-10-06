@@ -98,7 +98,7 @@ Never put a `<section>` inside a screen. Use `<div>`.
 | `req` | Requirements shown | What this screen satisfies. End each line with the requirement ID in `<code>`. |
 | `open` | Open decisions | Questions the client must answer. One question per `<li>`. |
 | `decided` | Decided | Answers already given. Say when and by whom. |
-| `info` | Notes | Anything else worth saying. |
+| `info` | Notes | Anything else worth saying. Use `data-title="Assumed"` for small defaults you chose without asking. |
 
 `data-title="..."` overrides the heading, for example `data-title="Decided in the review, Oct 9"`.
 
@@ -154,7 +154,8 @@ Repeat the same `topbar` or `side` menu on every screen of the same app area, wi
 | `empty` | A dashed box for "nothing here yet". Say what to do next inside it. |
 | `prog` | A progress bar: `<div class="prog"><b style="width:60%"></b></div>`. |
 | `toast` | A small dark confirmation message. |
-| `modal` | A dialog box, centered. |
+| `modal` | A dialog box, centered. To show it over a page, wrap the page content in `<div class="dim">` and put the `modal` after it. |
+| `fold` | A collapsed row that would expand. Add `open` and follow it with the content when drawn expanded. For long lists, show three or four rows and one `fold` saying how many more. |
 | `mail` | An email. Start with `<div class="hdr">From: ... · To: ...</div>`. |
 | `chat` + `msg` | A conversation or text message. `msg me` is the person's own message. |
 | `flow` + `step` | A row of numbered steps, for overview pages. |
@@ -183,6 +184,8 @@ Use `<h2>` for the page title inside a screen and `<h3>` for section titles.
 
 <div class="seg"><span aria-current="true">Day</span><span>Week</span><span>Month</span></div>
 ```
+
+Use `seg` for tabs inside a page as well as for switches.
 
 A `field` with only the class shows placeholder text in grey. Add `filled` when it holds a value the person typed.
 
@@ -216,7 +219,7 @@ A `style` attribute is fine for spacing and sizing only: `style="margin-top:14px
 - Every `required` screen cites at least one requirement.
 - Every `extra` screen has `data-scope-why`.
 - Every requirement is cited on at least one screen.
-- Every product screen is a step, or the parent of a step, in a journey.
+- Every `required` and `needed` screen is a step, or the parent of a step, in a journey. Extras do not have to be.
 - Every `data-go` points at an `id` that exists.
 - The three `<!-- wf:... -->` markers are still in the file.
 - Names, dates, and numbers agree across screens.
