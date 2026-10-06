@@ -20,8 +20,8 @@ const decode = (t) =>
   t.replace(/&lt;/g, "<").replace(/&gt;/g, ">").replace(/&quot;/g, '"').replace(/&#39;/g, "'").replace(/&amp;/g, "&");
 const text = (html) => decode(html.replace(/<[^>]*>/g, " ")).replace(/\s+/g, " ").trim();
 const attr = (attrs, name) => {
-  const m = new RegExp(`(?:^|\\s)${name}=(?:"([^"]*)"|'([^']*)')`).exec(attrs);
-  return m ? decode(m[1] ?? m[2]) : "";
+  const m = new RegExp(`(?:^|\\s)${name}\\s*=\\s*(?:"([^"]*)"|'([^']*)'|([^\\s"'>]+))`).exec(attrs);
+  return m ? decode(m[1] ?? m[2] ?? m[3]) : "";
 };
 const hasClass = (attrs, name) => attr(attrs, "class").split(/\s+/).includes(name);
 /** Every `<tag ...>body</tag>` in html, as { attrs, body }. Does not handle a tag nested in itself. */

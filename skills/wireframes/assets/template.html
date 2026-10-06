@@ -484,6 +484,10 @@ function feedbackText(model, comments, marks) {
     ph.className = 'printhead';
     ph.innerHTML = `<b>${esc(s.k)} · ${esc(s.name)}</b><span>${esc([s.who, s.scope].filter(Boolean).join(' · '))}</span>`;
     el.prepend(ph);
+    for (const go of el.querySelectorAll('[data-go]')) {
+      go.tabIndex = 0;
+      go.setAttribute('role', 'button');
+    }
     el.hidden = true;
   }
 
@@ -540,7 +544,8 @@ function feedbackText(model, comments, marks) {
           });
           html += `<h2>${esc(j.role)}</h2><div class="tw"><table><tr><th>Step</th><th>Screen</th><th>What happens</th><th>Sign-off</th></tr>${rows.join('')}</table></div>`;
         }
-        return `${html}<div class="signline"><div>Name</div><div>Signature</div><div>Date</div></div><p><button class="tool" type="button" id="printview">Print this sheet</button></p>`;
+        const meta = [project.client, project.version && `version ${project.version}`, project.date].filter(Boolean).join(' · ');
+        return `<div class="printhead"><b>${esc(project.name)} · Sign-off sheet</b><span>${esc(meta)}</span></div>${html}<div class="signline"><div>Name</div><div>Signature</div><div>Date</div></div><p><button class="tool" type="button" id="printview">Print this sheet</button></p>`;
       },
     },
     {
@@ -705,6 +710,8 @@ function feedbackText(model, comments, marks) {
   $('copy').addEventListener('click', () => copyText(`${location.href.split('#')[0]}#${encodeURIComponent(current)}`, 'Link to this screen', $('copy')));
   document.addEventListener('keydown', (e) => {
     if (e.target.closest('textarea,input,select') || e.metaKey || e.ctrlKey || e.altKey) return;
+    const go = (e.key === 'Enter' || e.key === ' ') && e.target.closest('section.wf [data-go]');
+    if (go) { e.preventDefault(); return show(go.dataset.go); }
     if (e.key === 'ArrowRight') step(1);
     if (e.key === 'ArrowLeft') step(-1);
   });

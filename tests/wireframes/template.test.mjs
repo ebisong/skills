@@ -226,6 +226,15 @@ test("the reader copes with awkward but valid markup", () => {
   assert.deepEqual(m.missingMarkers, []);
 });
 
+test("the reader finds links written with spaces around = or without quotes", () => {
+  const m = readModel(
+    page(wf('id="s1" data-k="S1" data-name="One" data-group="A"', '<span data-go = "lost-one">a</span><span data-go=lost-two>b</span>')),
+  );
+  assert.deepEqual(m.screens[0].gos, ["lost-one", "lost-two"]);
+  const errors = messages(m, "error");
+  assert.ok(errors.some((e) => /lost-one/.test(e)) && errors.some((e) => /lost-two/.test(e)));
+});
+
 test("the reader reports a removed marker and a nested section", () => {
   const nested = readModel(page(wf('id="s1" data-k="S1" data-name="One" data-group="A"', "<section>inner</section>")));
   assert.notEqual(nested.sectionCount, nested.screens.length);
