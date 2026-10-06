@@ -34,6 +34,7 @@ Add `-g` to install them globally instead of into the current project.
 ## Skills
 
 - **[well-formed-outcome](skills/well-formed-outcome/SKILL.md).** Takes a fuzzy goal and checks it against seven conditions from NLP, one question at a time, until it's specific enough to build. I run it before every spec I write. `/skills:well-formed-outcome` in Claude Code.
+- **[wireframes](skills/wireframes/SKILL.md).** Reads a statement of work, a brief, or call notes and draws every screen as one HTML file you open in a browser. Each screen cites the requirement it covers and lists the decisions still open, and there's a sign-off sheet at the end. I get the wireframes signed before I write any code. It's built for whoever is talking to the client, so there's nothing to set up. `/skills:wireframes` in Claude Code.
 
 ## Built to Market
 

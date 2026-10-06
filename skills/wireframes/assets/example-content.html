@@ -1,0 +1,259 @@
+<!--
+  A finished example: Pawline, a booking page for a one-person dog grooming shop.
+  Invented project, invented people. Read it for the shape of a good screen, then write your own.
+
+  Each block below goes into the matching place in template.html:
+    block:project       replaces the #wf-project element
+    block:requirements  goes above the wf:requirements marker
+    block:journeys      goes above the wf:journeys marker
+    block:screens       goes above the wf:screens marker
+-->
+
+<!-- block:project -->
+<div id="wf-project" hidden
+     data-name="Pawline"
+     data-client="Sam's Dog Grooming"
+     data-version="0.1"
+     data-date="2026-10-06"
+     data-accent="#1f7a6d">
+  A booking page for a one-person dog grooming shop. Owners book a groom from their phone without an account. Sam, the groomer, runs her day from one screen.
+</div>
+
+<!-- block:requirements -->
+<li data-id="BOOK-1" data-source="Brief, page 1">An owner can book a groom without creating an account.</li>
+<li data-id="BOOK-2" data-source="Brief, page 1">The owner sees each service's price and length before choosing a time.</li>
+<li data-id="BOOK-3" data-source="Call with Sam, Sep 30">Only open time slots are offered.</li>
+<li data-id="BOOK-4" data-source="Brief, page 2">The owner gets a confirmation by text message.</li>
+<li data-id="DAY-1" data-source="Brief, page 2">Sam sees today's bookings in time order.</li>
+<li data-id="DAY-2" data-source="Call with Sam, Sep 30">Sam can mark a dog as arrived, in progress, or ready.</li>
+<li data-id="DAY-3" data-source="Call with Sam, Sep 30">The owner is texted when the dog is ready for pickup.</li>
+
+<!-- block:journeys -->
+<ol data-role="Owner (Maya)">
+  <li data-screen="B1">Opens the booking link and picks a service.</li>
+  <li data-screen="B2">Picks a time, or sees that the week is full.</li>
+  <li data-screen="B3">Enters her name, phone number and the dog's name.</li>
+  <li data-screen="B4">Sees the booking confirmed.</li>
+  <li data-screen="B5">Gets the confirmation text.</li>
+</ol>
+<ol data-role="Groomer (Sam)">
+  <li data-screen="G1">Opens Today and sees the day's dogs in order.</li>
+  <li data-screen="G2">Marks Biscuit ready, which texts Maya.</li>
+  <li data-screen="G3">Checks what the week earned.</li>
+</ol>
+
+<!-- block:screens -->
+<section class="wf" id="a1" data-k="A1" data-name="Who uses it" data-who="Everyone" data-group="Overview">
+  <p class="lede">Two kinds of people use Pawline. Read this first: every screen after it belongs to one of them.</p>
+  <div class="screen">
+    <div class="tw"><table>
+      <tr><th>Person</th><th>Who they are</th><th>How they get in</th><th>What they do</th><th>Where</th></tr>
+      <tr><td><b>Maya</b><br><span class="muted">dog owner</span></td><td>Owns Biscuit, a cockapoo. Books every six weeks.</td><td>A link on Sam's website or Instagram. No account.</td><td>Picks a service and a time, gives a phone number.</td><td>Phone</td></tr>
+      <tr><td><b>Sam</b><br><span class="muted">groomer</span></td><td>Runs the shop alone. Six to eight dogs a day.</td><td>Signs in once on the shop laptop.</td><td>Works through the day's dogs and tells owners when to come back.</td><td>Laptop</td></tr>
+    </table></div>
+    <div class="flow" style="margin-top:14px">
+      <div class="step"><div class="n">1 · Maya</div><b>Book</b><small>Service, time, details. Under a minute.</small></div>
+      <div class="step"><div class="n">2 · Pawline</div><b>Confirm</b><small>A text with the time and the address.</small></div>
+      <div class="step"><div class="n">3 · Sam</div><b>Groom</b><small>Arrived, in progress, ready.</small></div>
+      <div class="step"><div class="n">4 · Pawline</div><b>Call back</b><small>A text when the dog is ready.</small></div>
+    </div>
+  </div>
+  <aside class="note" data-kind="info" data-title="Read the screens as">
+    <ul>
+      <li>Layout and wording are the point. Colors and fonts are not decided here.</li>
+      <li>Maya, Biscuit and Sam are invented, and the same on every screen.</li>
+      <li>Every screen is one moment on Tuesday, October 13.</li>
+    </ul>
+  </aside>
+</section>
+
+<section class="wf" id="b1" data-k="B1" data-name="Pick a service" data-who="Maya · phone" data-group="Booking"
+         data-scope="required" data-url="pawline.example/sam" data-device="phone">
+  <p class="lede">The first thing Maya sees after tapping the link. No sign-in, no account. Each service shows its price and how long it takes.</p>
+  <div class="screen">
+    <div class="stack">
+      <div><h2>Book with Sam</h2><p class="muted">Sam's Dog Grooming · 14 Mill Lane</p></div>
+      <span class="label">What does your dog need?</span>
+      <div class="choice on"><i></i><div><b>Full groom</b><div class="muted">Wash, cut, nails · 90 min · $85</div></div></div>
+      <div class="choice"><i></i><div><b>Wash and tidy</b><div class="muted">Wash, brush, nails · 45 min · $50</div></div></div>
+      <div class="choice"><i></i><div><b>Nails only</b><div class="muted">15 min · $15</div></div></div>
+      <span class="btn primary" data-go="b2-1">Pick a time</span>
+    </div>
+  </div>
+  <aside class="note" data-kind="req">
+    <ul>
+      <li>Booking starts with no account and no sign-in. <code>BOOK-1</code></li>
+      <li>Price and length sit on every service, before any time is chosen. <code>BOOK-2</code></li>
+    </ul>
+  </aside>
+  <aside class="note" data-kind="open">
+    <ul><li>Do prices change by dog size? The brief gives one price per service. Sam mentioned "big dogs take longer" on the call.</li></ul>
+  </aside>
+</section>
+
+<section class="wf" id="b2-1" data-k="B2.1" data-parent="B2" data-parent-name="Pick a time" data-name="Slots available"
+         data-who="Maya · phone" data-group="Booking" data-scope="required" data-url="pawline.example/sam/time" data-device="phone">
+  <p class="lede">Only times Sam can take a 90-minute groom are shown. Taken slots are not listed at all.</p>
+  <div class="screen">
+    <div class="stack">
+      <div><h2>Pick a time</h2><p class="muted">Full groom · 90 min · $85</p></div>
+      <div class="seg"><span>Mon 12</span><span aria-current="true">Tue 13</span><span>Wed 14</span><span>Thu 15</span></div>
+      <div class="cols">
+        <div class="choice"><i></i>9:00 am</div>
+        <div class="choice on"><i></i>11:00 am</div>
+        <div class="choice"><i></i>2:30 pm</div>
+      </div>
+      <span class="btn primary" data-go="b3">Continue</span>
+    </div>
+  </div>
+  <aside class="note" data-kind="req">
+    <ul><li>A slot appears only if the whole service fits before Sam's next booking. <code>BOOK-3</code></li></ul>
+  </aside>
+  <aside class="note" data-kind="decided" data-title="Decided on the call, Sep 30">
+    <ul><li>Owners can book up to four weeks ahead.</li></ul>
+  </aside>
+</section>
+
+<section class="wf" id="b2-2" data-k="B2.2" data-parent="B2" data-name="No slots left this week"
+         data-who="Maya · phone" data-group="Booking" data-scope="needed" data-url="pawline.example/sam/time" data-device="phone">
+  <p class="lede">What Maya sees when the week is full. The screen says so plainly and offers the next open day.</p>
+  <div class="screen">
+    <div class="stack">
+      <div><h2>Pick a time</h2><p class="muted">Full groom · 90 min · $85</p></div>
+      <div class="empty"><b>Sam is fully booked this week.</b><br>The next open time is Monday, October 19 at 9:00 am.</div>
+      <span class="btn primary">See the week of October 19</span>
+    </div>
+  </div>
+  <aside class="note" data-kind="req">
+    <ul><li>A full week shows no slots, and never a slot that cannot be booked. <code>BOOK-3</code></li></ul>
+  </aside>
+  <aside class="note" data-kind="open">
+    <ul><li>Should Maya be able to join a waitlist for cancellations? Not in the brief.</li></ul>
+  </aside>
+</section>
+
+<section class="wf" id="b3" data-k="B3" data-name="Your details" data-who="Maya · phone" data-group="Booking"
+         data-scope="required" data-url="pawline.example/sam/details" data-device="phone">
+  <p class="lede">Three fields. The phone number is how Pawline reaches Maya, so it is the only one checked.</p>
+  <div class="screen">
+    <div class="stack">
+      <div><h2>Your details</h2><p class="muted">Full groom · Tue Oct 13 · 11:00 am</p></div>
+      <div><span class="label">Your name</span><div class="field filled">Maya Okafor</div></div>
+      <div><span class="label">Mobile number</span><div class="field filled error">555 010</div><div class="help error">That number looks too short.</div></div>
+      <div><span class="label">Dog's name</span><div class="field filled">Biscuit</div></div>
+      <div><span class="label">Anything Sam should know? (optional)</span><div class="field area">Nervous around dryers</div></div>
+      <span class="btn primary" data-go="b4">Book it</span>
+    </div>
+  </div>
+  <aside class="note" data-kind="req">
+    <ul><li>Name, phone and dog's name are all that is asked. No password, no email. <code>BOOK-1</code></li></ul>
+  </aside>
+</section>
+
+<section class="wf" id="b4" data-k="B4" data-name="Booked" data-who="Maya · phone" data-group="Booking"
+         data-scope="required" data-url="pawline.example/sam/booked" data-device="phone">
+  <p class="lede">The booking is made. The screen repeats the time and place and says a text is on its way.</p>
+  <div class="screen">
+    <div class="stack">
+      <div class="banner good"><b>Biscuit is booked.</b></div>
+      <div class="card"><h5>Your booking</h5><p><b>Full groom</b> · 90 min · $85</p><p>Tuesday, October 13 at 11:00 am</p><p class="muted">Sam's Dog Grooming, 14 Mill Lane</p></div>
+      <p class="muted">We sent the details to 555 0102. Pay Sam at pickup.</p>
+      <span class="btn" data-go="b5">See the text</span>
+    </div>
+  </div>
+  <aside class="note" data-kind="req">
+    <ul><li>The screen tells Maya a text has been sent, and to which number. <code>BOOK-4</code></li></ul>
+  </aside>
+  <aside class="note" data-kind="open">
+    <ul><li>Can Maya cancel or move the booking herself, or does she text Sam? No screen is drawn for it yet.</li></ul>
+  </aside>
+</section>
+
+<section class="wf" id="b5" data-k="B5" data-name="The confirmation text" data-who="Maya · text message" data-group="Booking"
+         data-scope="needed" data-url="Messages" data-device="phone">
+  <p class="lede">The one message Maya gets after booking. It has to make sense with no app and no link.</p>
+  <div class="screen">
+    <div class="chat">
+      <div class="msg">Sam's Dog Grooming: Biscuit is booked for a full groom on Tue Oct 13 at 11:00 am, 14 Mill Lane. Reply to this text if you need to change it.</div>
+    </div>
+  </div>
+  <aside class="note" data-kind="req">
+    <ul><li>Sent as soon as the booking is made. <code>BOOK-4</code></li></ul>
+  </aside>
+</section>
+
+<section class="wf" id="g1-1" data-k="G1.1" data-parent="G1" data-parent-name="Today" data-name="A normal day"
+         data-who="Sam · laptop" data-group="Groomer" data-scope="required" data-url="pawline.example/today">
+  <p class="lede">Sam's whole day on one screen, in time order. Each dog has one button: the next thing that happens to it.</p>
+  <div class="screen">
+    <header class="topbar"><b>Pawline</b><nav><span aria-current="page">Today</span><span>Week</span><span>Earnings</span></nav></header>
+    <div class="cols c3" style="margin-bottom:14px">
+      <div class="card"><h5>Dogs today</h5><div class="num">6</div></div>
+      <div class="card"><h5>Here now</h5><div class="num">2</div></div>
+      <div class="card"><h5>Next arrival</h5><div class="num">11:00</div></div>
+    </div>
+    <div class="tw"><table>
+      <tr><th>Time</th><th>Dog</th><th>Owner</th><th>Service</th><th>Status</th><th></th></tr>
+      <tr><td class="mono">9:00</td><td><b>Otis</b></td><td>R. Lindqvist</td><td>Wash and tidy</td><td><span class="pill good">Ready</span></td><td class="muted">Owner texted 9:50</td></tr>
+      <tr><td class="mono">9:45</td><td><b>Pepper</b></td><td>J. Abara</td><td>Full groom</td><td><span class="pill accent">In progress</span></td><td><span class="btn" data-go="g2">Mark ready</span></td></tr>
+      <tr><td class="mono">11:00</td><td><b>Biscuit</b></td><td>Maya Okafor</td><td>Full groom <span class="muted">· nervous around dryers</span></td><td><span class="pill">Booked</span></td><td><span class="btn">Mark arrived</span></td></tr>
+      <tr><td class="mono">2:30</td><td><b>Juno</b></td><td>T. Brandt</td><td>Nails only</td><td><span class="pill">Booked</span></td><td><span class="btn">Mark arrived</span></td></tr>
+    </table></div>
+  </div>
+  <aside class="note" data-kind="req">
+    <ul>
+      <li>Today's bookings, earliest first. <code>DAY-1</code></li>
+      <li>One button per dog moves it to the next status: arrived, in progress, ready. <code>DAY-2</code></li>
+    </ul>
+  </aside>
+</section>
+
+<section class="wf" id="g1-2" data-k="G1.2" data-parent="G1" data-name="Nothing booked"
+         data-who="Sam · laptop" data-group="Groomer" data-scope="needed" data-url="pawline.example/today">
+  <p class="lede">A day with no bookings. The screen says so and gives Sam the one useful thing to do next.</p>
+  <div class="screen">
+    <header class="topbar"><b>Pawline</b><nav><span aria-current="page">Today</span><span>Week</span><span>Earnings</span></nav></header>
+    <div class="empty"><b>No dogs booked today.</b><br>Your booking link is pawline.example/sam<br><br><span class="btn">Copy booking link</span></div>
+  </div>
+  <aside class="note" data-kind="req">
+    <ul><li>An empty day is shown as empty, not as an error. <code>DAY-1</code></li></ul>
+  </aside>
+</section>
+
+<section class="wf" id="g2" data-k="G2" data-name="Dog is ready" data-who="Sam · laptop" data-group="Groomer"
+         data-scope="required" data-url="pawline.example/today">
+  <p class="lede">Sam taps Mark ready on Pepper. Before the text goes out, she sees exactly what the owner will read.</p>
+  <div class="screen">
+    <header class="topbar"><b>Pawline</b><nav><span aria-current="page">Today</span><span>Week</span><span>Earnings</span></nav></header>
+    <div class="modal">
+      <h3>Tell J. Abara that Pepper is ready?</h3>
+      <div class="msg">Sam's Dog Grooming: Pepper is ready for pickup. See you soon.</div>
+      <div class="row" style="margin-top:12px"><span class="btn primary" data-go="g1-1">Mark ready and send</span><span class="btn link" data-go="g1-1">Cancel</span></div>
+    </div>
+  </div>
+  <aside class="note" data-kind="req">
+    <ul>
+      <li>Ready is the last status and is set by Sam. <code>DAY-2</code></li>
+      <li>Marking ready sends the pickup text. <code>DAY-3</code></li>
+    </ul>
+  </aside>
+  <aside class="note" data-kind="open">
+    <ul><li>Can Sam edit the text before it goes? Drawn as fixed wording for now.</li></ul>
+  </aside>
+</section>
+
+<section class="wf" id="g3" data-k="G3" data-name="Weekly earnings" data-who="Sam · laptop" data-group="Groomer"
+         data-scope="extra" data-scope-why="Not in the brief. Sam asked about it on the Sep 30 call." data-url="pawline.example/earnings">
+  <p class="lede">What the week brought in, by day. Drawn so a decision can be made against something real.</p>
+  <div class="screen">
+    <header class="topbar"><b>Pawline</b><nav><span>Today</span><span>Week</span><span aria-current="page">Earnings</span></nav></header>
+    <div class="cols" style="margin-bottom:14px">
+      <div class="card"><h5>This week</h5><div class="num">$1,840</div><p class="muted">27 dogs</p></div>
+      <div class="card"><h5>Last week</h5><div class="num">$1,655</div><p class="muted">24 dogs</p></div>
+    </div>
+    <div class="ph" style="min-height:160px">Bar chart: earnings per day, Monday to Saturday</div>
+  </div>
+  <aside class="note" data-kind="open">
+    <ul><li>Is this in the first version? Payment is taken in person, so these numbers are booked value, not money received.</li></ul>
+  </aside>
+</section>
