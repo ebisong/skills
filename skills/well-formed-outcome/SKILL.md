@@ -1,6 +1,6 @@
 ---
 name: well-formed-outcome
-description: Run the NLP Well-Formed Outcome frame on any goal, feature, or agent design to check all 7 conditions are met before building. Use when a goal is fuzzy, before writing a spec, or when asked to frame an outcome.
+description: Run the NLP Well-Formed Outcome frame on a goal, feature, or agent design to check all 7 conditions before building. Use when a goal is fuzzy, before writing a spec, or when asked to frame an outcome.
 ---
 
 # Well-Formed Outcome

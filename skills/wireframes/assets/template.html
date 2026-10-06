@@ -1,0 +1,735 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Wireframes</title>
+<!--
+  Wireframe catalog. One file, no build step, no network. Open it in a browser.
+
+  Only three places in this file change per project:
+    1. #wf-project        the project name, version, date and summary
+    2. the three markers  wf:requirements, wf:journeys, wf:screens (add content ABOVE each marker)
+    3. nothing else       the styles and the script are the shell, leave them as they are
+-->
+<style>
+:root{
+  --accent-base:#2563a8; --accent:var(--accent-base);
+  --ground:#f5f6f8; --surface:#ffffff; --ink:#1f2328; --muted:#5d6672; --line:#d5dae0;
+  --wire:#eceff2; --wire2:#dfe3e8; --accent-ink:#ffffff;
+  --good:#1e7b4b; --warn:#7a5600; --crit:#b53a2a;
+  --good-soft:#e3f3ea; --warn-soft:#fdf3d6; --crit-soft:#f9e5e1;
+  --accent-soft:color-mix(in srgb,var(--accent) 12%,var(--surface));
+  --sans:system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+  --mono:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+}
+@media (prefers-color-scheme:dark){
+  :root{
+    --ground:#15181d; --surface:#1c2026; --ink:#e7eaee; --muted:#9aa4b0; --line:#333a43;
+    --wire:#242930; --wire2:#2d333b; --accent-ink:#0b1420;
+    --good:#6fcb94; --warn:#f0c75a; --crit:#ee8b75;
+    --good-soft:#1b2f24; --warn-soft:#33290f; --crit-soft:#39201a;
+    --accent:color-mix(in srgb,var(--accent-base) 55%,white);
+    --accent-soft:color-mix(in srgb,var(--accent-base) 24%,var(--surface));
+  }
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--ground);color:var(--ink);font-family:var(--sans);font-size:14px;line-height:1.45;padding:0 16px}
+a{color:var(--accent)}
+[hidden]{display:none!important}
+.app{max-width:1280px;margin:0 auto;display:grid;grid-template-columns:250px minmax(0,1fr);gap:24px;min-height:100vh}
+
+/* rail: the list of screens */
+.rail{padding:24px 0;position:sticky;top:0;align-self:start;max-height:100vh;overflow:auto}
+.brand{font-weight:800;font-size:15px}
+.brand small{display:block;font-family:var(--mono);font-size:11px;color:var(--muted);font-weight:400;margin-top:2px}
+.group{margin-top:20px}
+.group h4{margin:0 0 6px;font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);font-weight:600}
+.rail button{display:flex;width:100%;text-align:left;gap:8px;align-items:baseline;background:none;border:0;border-radius:6px;padding:7px 8px;color:var(--ink);font:inherit;cursor:pointer}
+.rail button:hover{background:var(--wire)}
+.rail button[aria-current="true"]{background:var(--accent-soft);color:var(--accent);font-weight:600}
+.rail button:focus-visible,.stage button:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.rail .k{font-family:var(--mono);font-size:11px;color:var(--muted);min-width:28px}
+.rail .parent{padding:7px 8px 2px;font-size:12px;color:var(--muted);font-weight:600}
+.rail button.sub{padding-left:22px;font-size:13px}
+.rail button.x{color:var(--muted);font-style:italic}
+.rail .count{margin-left:auto;font-family:var(--mono);font-size:11px;border-radius:999px;padding:0 7px;background:var(--wire)}
+.rail .count.bad{background:var(--crit-soft);color:var(--crit)}
+.rail .count.warn{background:var(--warn-soft);color:var(--warn)}
+.tool{display:inline-flex;align-items:center;justify-content:center;min-height:32px;border:1px solid var(--line);border-radius:6px;padding:4px 10px;background:var(--surface);color:var(--ink);font:inherit;font-size:12px;cursor:pointer}
+.tool:hover{border-color:var(--accent)}
+.tool:disabled{opacity:.4;cursor:default}
+.rail button.tool{width:100%;margin-top:10px;border:1px solid var(--line);background:var(--surface);justify-content:center;font-size:12px;text-align:center}
+.rail .railtoggle{display:none}
+.legend{font-family:var(--mono);font-size:11px;color:var(--muted);margin-top:20px;display:flex;gap:6px 14px;flex-wrap:wrap}
+.legend span{display:flex;gap:6px;align-items:center}
+.legend i{width:14px;height:10px;border-radius:2px;display:inline-block;border:1px solid var(--line)}
+
+/* stage: one screen at a time */
+.stage{padding:24px 0 48px;min-width:0}
+.head{display:flex;flex-wrap:wrap;gap:12px 24px;align-items:end;justify-content:space-between;margin-bottom:12px}
+.head h1{margin:0;font-size:22px;font-weight:800;text-wrap:balance}
+.head .who{font-family:var(--mono);font-size:12px;color:var(--muted);margin-top:2px}
+.navbar{display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+.pos{font-family:var(--mono);font-size:11px;color:var(--muted)}
+.scopepill{display:inline-block;font-family:var(--mono);font-size:11px;font-weight:400;border-radius:999px;padding:2px 8px;vertical-align:middle;margin-left:6px;background:var(--wire);color:var(--muted)}
+.scopepill.required{background:var(--good-soft);color:var(--good)}
+.scopepill.needed{background:var(--accent-soft);color:var(--accent)}
+.scopepill.extra{background:var(--warn-soft);color:var(--warn)}
+.lede{color:var(--muted);max-width:70ch;margin:0 0 16px}
+.printhead{display:none}
+.bottomnav{margin-top:22px;display:flex;justify-content:space-between;gap:8px;flex-wrap:wrap}
+.feedback{margin-top:22px;border-top:1px solid var(--line);padding-top:14px}
+.feedback label{display:block;font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);font-weight:600;margin-bottom:6px}
+.feedback textarea{width:100%;min-height:64px;border:1px solid var(--line);border-radius:6px;padding:8px 10px;background:var(--surface);color:var(--ink);font:inherit;resize:vertical}
+.feedback .hint{font-size:12px;color:var(--muted);margin-top:6px}
+
+/* frame: the browser or phone around a screen */
+.frame{background:var(--surface);border:1px solid var(--line);border-radius:10px;overflow:hidden}
+.frame.phone{max-width:390px;margin-inline:auto;border-radius:22px}
+.chrome{display:flex;align-items:center;gap:10px;padding:8px 12px;border-bottom:1px solid var(--line);background:var(--wire);font-family:var(--mono);font-size:11px;color:var(--muted)}
+.chrome i{width:9px;height:9px;border-radius:50%;background:var(--wire2);border:1px solid var(--line);display:inline-block}
+.chrome .url{flex:1;background:var(--surface);border:1px solid var(--line);border-radius:4px;padding:3px 8px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.screen{padding:18px;min-height:380px}
+
+/* notes under a screen */
+.notes{margin-top:18px;display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.note{border-left:3px solid var(--line);padding:2px 12px;min-width:0}
+.note h3{margin:0 0 4px;font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);font-weight:600}
+.note ul{margin:0;padding-left:18px}
+.note li{margin:3px 0}
+.note code,.view code{font-family:var(--mono);font-size:11.5px;background:var(--wire);padding:0 4px;border-radius:3px;white-space:nowrap}
+.note.req{border-color:var(--accent)} .note.req h3{color:var(--accent)}
+.note.open{border-color:var(--warn)} .note.open h3{color:var(--warn)}
+.note.decided{border-color:var(--good)} .note.decided h3{color:var(--good)}
+
+/* ---------- the screen kit: build every screen from these ---------- */
+.ph{background:repeating-linear-gradient(135deg,var(--wire) 0 6px,var(--wire2) 6px 7px);border:1px dashed var(--line);border-radius:6px;color:var(--muted);display:flex;align-items:center;justify-content:center;font-size:12px;text-align:center;padding:8px;min-height:80px}
+.topbar{display:flex;justify-content:space-between;align-items:center;gap:12px;padding-bottom:12px;border-bottom:1px solid var(--line);margin-bottom:14px;flex-wrap:wrap}
+.topbar b{font-weight:800;font-size:15px}
+.topbar nav{display:flex;gap:14px;font-size:13px;color:var(--muted);flex-wrap:wrap}
+.topbar nav [aria-current]{color:var(--ink);font-weight:600;border-bottom:2px solid var(--accent);padding-bottom:2px}
+.side{display:grid;grid-template-columns:180px minmax(0,1fr);gap:16px}
+.side>nav{display:flex;flex-direction:column;gap:4px;font-size:13px;color:var(--muted);border-right:1px solid var(--line);padding-right:12px}
+.side>nav span{padding:6px 8px;border-radius:6px}
+.side>nav [aria-current]{background:var(--accent-soft);color:var(--accent);font-weight:600}
+.stack{display:flex;flex-direction:column;gap:12px}
+.row{display:flex;gap:12px;flex-wrap:wrap;align-items:center}
+.spread{display:flex;gap:12px;flex-wrap:wrap;align-items:center;justify-content:space-between}
+.cols{display:grid;gap:12px;grid-template-columns:repeat(2,minmax(0,1fr))}
+.cols.c3{grid-template-columns:repeat(3,minmax(0,1fr))}
+.cols.c4{grid-template-columns:repeat(4,minmax(0,1fr))}
+.narrow{max-width:520px;margin-inline:auto}
+.card{border:1px solid var(--line);border-radius:8px;padding:12px;background:var(--surface);min-width:0}
+.card h5,.label{margin:0 0 6px;font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);font-weight:600;display:block}
+.screen h2{margin:0 0 6px;font-size:19px;text-wrap:balance}
+.screen h3{margin:0 0 6px;font-size:15px}
+.screen p{margin:6px 0}
+.num{font-size:26px;font-weight:800;font-variant-numeric:tabular-nums;line-height:1.1}
+.btn{display:inline-flex;align-items:center;min-height:40px;border:1px solid var(--line);border-radius:6px;padding:8px 14px;font-size:13px;font-weight:600;background:var(--surface);color:var(--ink);cursor:default}
+.btn.primary{background:var(--accent);color:var(--accent-ink);border-color:var(--accent)}
+.btn.danger{border-color:var(--crit);color:var(--crit)}
+.btn.ghost{border-style:dashed}
+.btn.link{border:0;background:none;color:var(--accent);text-decoration:underline;padding-inline:4px;min-height:32px}
+.btn.disabled{opacity:.5}
+[data-go]{cursor:pointer}
+[data-go]:hover{outline:2px solid var(--accent);outline-offset:2px}
+.pill{display:inline-block;border-radius:999px;padding:2px 8px;font-size:11px;font-weight:600;background:var(--wire);color:var(--ink);white-space:nowrap}
+.pill.good{background:var(--good-soft);color:var(--good)}
+.pill.warn{background:var(--warn-soft);color:var(--warn)}
+.pill.crit{background:var(--crit-soft);color:var(--crit)}
+.pill.accent{background:var(--accent-soft);color:var(--accent)}
+table{border-collapse:collapse;width:100%;font-size:13px}
+th,td{text-align:left;padding:8px 10px;border-bottom:1px solid var(--line);vertical-align:top}
+th{font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);font-weight:600}
+.tw{overflow-x:auto}
+.mono{font-family:var(--mono);font-size:12px}
+.muted{color:var(--muted)}
+.field{border:1px solid var(--line);border-radius:6px;padding:9px 10px;background:var(--surface);color:var(--muted);font-size:13px;min-height:40px}
+.field.filled{color:var(--ink)}
+.field.error{border-color:var(--crit)}
+.field.area{min-height:88px}
+.field.select{display:flex;justify-content:space-between;align-items:center}
+.field.select::after{content:"▾";color:var(--muted)}
+.toggle{display:flex;gap:10px;align-items:center;min-height:40px}
+.toggle i{width:32px;height:18px;border-radius:999px;background:var(--wire2);border:1px solid var(--line);display:inline-block;flex:none;position:relative}
+.toggle i::after{content:"";position:absolute;top:1px;left:1px;width:14px;height:14px;border-radius:50%;background:var(--surface);border:1px solid var(--line)}
+.toggle.on i{background:var(--accent);border-color:var(--accent)}
+.toggle.on i::after{left:15px}
+.help{font-size:12px;color:var(--muted);margin-top:4px}
+.help.error{color:var(--crit)}
+.choice{display:flex;gap:8px;align-items:center;min-height:44px;padding:8px 10px;border:1px solid var(--line);border-radius:6px}
+.choice i{width:14px;height:14px;border-radius:50%;border:1px solid var(--muted);display:inline-block;flex:none}
+.choice.on{background:var(--accent-soft);border-color:var(--accent)}
+.choice.on i{background:var(--accent);border-color:var(--accent)}
+.check{display:flex;gap:10px;align-items:flex-start;padding:8px 10px;border:1px solid var(--line);border-radius:8px}
+.check i{width:14px;height:14px;border-radius:3px;border:1px solid var(--muted);display:inline-block;flex:none;margin-top:3px}
+.check.done i{background:var(--good);border-color:var(--good)}
+.seg{display:inline-flex;border:1px solid var(--line);border-radius:6px;overflow:hidden}
+.seg span{padding:6px 12px;font-size:13px;color:var(--muted)}
+.seg [aria-current]{background:var(--accent-soft);color:var(--accent);font-weight:600}
+.prog{height:6px;background:var(--wire);border-radius:3px;overflow:hidden}
+.prog b{display:block;height:100%;background:var(--accent)}
+.banner{border-left:3px solid var(--line);background:var(--wire);color:var(--ink);padding:8px 12px;border-radius:6px}
+.banner.good{border-left-color:var(--good);background:var(--good-soft)}
+.banner.warn{border-left-color:var(--warn);background:var(--warn-soft)}
+.banner.crit{border-left-color:var(--crit);background:var(--crit-soft)}
+.empty{border:1px dashed var(--line);border-radius:8px;padding:28px 16px;text-align:center;color:var(--muted)}
+.mail{border:1px solid var(--line);border-radius:8px;padding:14px;background:var(--surface);max-width:560px;margin-inline:auto}
+.mail .hdr{font-family:var(--mono);font-size:11px;color:var(--muted);border-bottom:1px solid var(--line);padding-bottom:6px;margin-bottom:10px}
+.chat{display:flex;flex-direction:column;gap:12px;max-width:760px}
+.msg{padding:10px 12px;border-radius:8px;max-width:88%;background:var(--wire)}
+.msg.me{align-self:flex-end;background:var(--accent-soft)}
+.modal{border:1px solid var(--line);border-radius:10px;padding:16px;background:var(--surface);max-width:440px;margin:24px auto;box-shadow:0 8px 30px rgb(0 0 0 / .18)}
+.dim{opacity:.35}
+.fold{display:flex;gap:8px;align-items:center;padding:8px 10px;border:1px solid var(--line);border-radius:6px;color:var(--muted);font-size:13px}
+.fold::before{content:"▸"}
+.fold.open::before{content:"▾"}
+.toast{display:inline-flex;gap:8px;align-items:center;border-radius:6px;padding:8px 12px;background:var(--ink);color:var(--surface);font-size:13px}
+.flow{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:8px}
+.step{border:1px solid var(--line);border-radius:8px;padding:10px;background:var(--surface)}
+.step .n{font-family:var(--mono);font-size:11px;color:var(--accent);margin-bottom:4px}
+.step b{display:block;margin-bottom:4px}
+.step small{color:var(--muted);display:block;line-height:1.35}
+
+/* built-in review pages */
+.view h2{font-size:15px;margin:22px 0 8px}
+.view .ok{color:var(--good)} .view .bad{color:var(--crit)} .view .warnc{color:var(--warn)}
+.view select{font:inherit;font-size:12px;border:1px solid var(--line);border-radius:6px;padding:4px 6px;background:var(--surface);color:var(--ink)}
+.view .jump{font-family:var(--mono);font-size:12px;border:1px solid var(--line);border-radius:4px;padding:0 5px;background:var(--surface);color:var(--accent);cursor:pointer;margin-right:4px}
+.signline{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px;margin-top:36px}
+.signline div{border-top:1px solid var(--ink);padding-top:4px;font-size:12px;color:var(--muted)}
+
+@media (max-width:820px){
+  .app{display:block}
+  .rail{position:static;max-height:none;padding:12px 0 0}
+  .rail #rail,.rail .legend{display:none}
+  .rail.open #rail,.rail.open .legend{display:block}
+  .rail .railtoggle{display:inline-flex}
+  .rail button,.rail .parent{min-height:44px;align-items:center}
+  .stage{padding-top:12px}
+  .notes,.cols,.cols.c3,.cols.c4,.side{grid-template-columns:1fr}
+  .side>nav{border-right:0;border-bottom:1px solid var(--line);padding:0 0 8px;flex-direction:row;flex-wrap:wrap}
+}
+@media print{
+  body{background:#fff;padding:0}
+  .rail,.head,.bottomnav,.feedback,.tool{display:none!important}
+  .app{display:block}
+  body:not(.printview) section.wf{display:block!important;break-after:page;padding-top:8px}
+  body:not(.printview) #wf-view{display:none!important}
+  body.printview section.wf{display:none!important}
+  .printhead{display:block;margin-bottom:10px}
+  .printhead b{font-size:18px}
+  .printhead span{font-family:var(--mono);font-size:11px;color:var(--muted);margin-left:8px}
+  .frame,.card,.note{break-inside:avoid}
+}
+</style>
+</head>
+<body>
+
+<!-- ============ 1. PROJECT: fill in the attributes and the summary ============ -->
+<div id="wf-project" hidden
+     data-name="Project name"
+     data-client=""
+     data-version="0.1"
+     data-date="YYYY-MM-DD"
+     data-accent="">
+  One or two sentences on what is being built and for whom.
+</div>
+
+<!-- ============ 2. REQUIREMENTS: one <li> each, added above the marker ============ -->
+<ol id="wf-requirements" hidden>
+<!-- wf:requirements -->
+</ol>
+
+<!-- ============ 3. JOURNEYS: one <ol> per role, added above the marker ============ -->
+<div id="wf-journeys" hidden>
+<!-- wf:journeys -->
+</div>
+
+<div class="app">
+  <aside class="rail" aria-label="Screens">
+    <div class="brand"><span id="brandname">Wireframes</span><small id="brandmeta"></small></div>
+    <button class="tool railtoggle" type="button" id="railtoggle">Screens ▾</button>
+    <button class="tool" type="button" id="leantoggle" hidden></button>
+    <div id="rail"></div>
+    <div class="legend">
+      <span><i style="background:var(--good-soft)"></i>required</span>
+      <span><i style="background:var(--accent-soft)"></i>needed</span>
+      <span><i style="background:var(--warn-soft)"></i>extra, or an open decision</span>
+      <span><i style="background:repeating-linear-gradient(135deg,var(--wire) 0 4px,var(--wire2) 4px 5px)"></i>placeholder</span>
+    </div>
+  </aside>
+
+  <main class="stage">
+    <div class="head">
+      <div>
+        <h1><span id="title"></span> <span class="scopepill" id="scope" hidden></span></h1>
+        <div class="who" id="who"></div>
+      </div>
+      <div class="navbar">
+        <span class="pos" id="pos"></span>
+        <button class="tool" id="prev" type="button">← Previous</button>
+        <button class="tool" id="next" type="button">Next →</button>
+        <button class="tool" id="copy" type="button" title="Copy a link to this screen">Copy link</button>
+      </div>
+    </div>
+
+    <!-- ============ 4. SCREENS: one <section class="wf"> each, added above the marker ============ -->
+    <div id="wf-screens">
+<!-- wf:screens -->
+    </div>
+
+    <div id="wf-view" class="view" hidden></div>
+
+    <div class="feedback" id="feedback">
+      <label for="fb">Feedback on this screen</label>
+      <textarea id="fb" placeholder="What should change on this screen? Saved in this browser as you type."></textarea>
+      <div class="hint">When the review is done, open <b>Feedback</b> in the list and copy everything in one go.</div>
+    </div>
+    <div class="bottomnav"><button class="tool" id="prev2" type="button">← Previous</button><button class="tool" id="next2" type="button">Next →</button></div>
+  </main>
+</div>
+
+<script>
+/* wf:rules:start
+   Pure functions, no page access. scripts/check.mjs runs these same rules from the command line. */
+const SCOPES = ['required', 'needed', 'extra'];
+const isExtra = (screen) => screen.scope === 'extra';
+const markKey = (role, stepIndex) => `${role}|${stepIndex}`;
+
+function collectProblems(model) {
+  const problems = [];
+  const error = (msg) => problems.push({ level: 'error', msg });
+  const warn = (msg) => problems.push({ level: 'warn', msg });
+  const { screens, requirements, journeys } = model;
+  const label = (s) => s.k || s.id || '(unnamed screen)';
+
+  for (const marker of model.missingMarkers || []) {
+    error(`The marker ${marker} is missing from the file. Put it back where the template has it.`);
+  }
+  if (model.sectionCount !== undefined && model.sectionCount !== screens.length) {
+    error(`Found ${model.sectionCount} <section> tags but ${screens.length} screens. A screen is missing class="wf" or its closing tag, or a <section> is used inside a screen.`);
+  }
+  const seenReqs = new Set();
+  for (const r of requirements) {
+    if (!r.id) error(`A requirement has no data-id: "${r.text}"`);
+    else if (seenReqs.has(r.id)) error(`Requirement id ${r.id} is used twice.`);
+    seenReqs.add(r.id);
+  }
+
+  const seenIds = new Set();
+  const seenLabels = new Set();
+  for (const s of screens) {
+    if (!s.id) error(`A screen named "${s.name}" has no id.`);
+    else if (seenIds.has(s.id)) error(`Screen id "${s.id}" is used twice. Every screen needs its own id.`);
+    seenIds.add(s.id);
+    if (!s.k) error(`Screen "${s.id}" has no data-k label.`);
+    else if (seenLabels.has(s.k)) error(`Screen label "${s.k}" is used twice.`);
+    seenLabels.add(s.k);
+    if (!s.name) error(`Screen ${label(s)} has no data-name.`);
+    if (!s.group) error(`Screen ${label(s)} has no data-group.`);
+    if (s.scope && !SCOPES.includes(s.scope)) {
+      error(`Screen ${label(s)} has scope "${s.scope}". Use ${SCOPES.join(', ')}, or leave it blank for a guide page.`);
+    }
+    if (s.bodies !== undefined && s.bodies !== 1) error(`Screen ${label(s)} has ${s.bodies} "screen" boxes. It needs exactly one <div class="screen">.`);
+  }
+
+  const known = new Set(requirements.map((r) => r.id));
+  const ids = new Set(screens.map((s) => s.id));
+  const labels = new Set(screens.flatMap((s) => [s.k, s.parent]).filter(Boolean));
+  for (const s of screens) {
+    for (const r of s.reqs) {
+      if (!known.has(r)) error(`Screen ${label(s)} cites requirement ${r}, which is not in the requirements list.`);
+    }
+    for (const g of s.gos) {
+      if (!ids.has(g)) error(`Screen ${label(s)} links to "${g}", which is not a screen id.`);
+    }
+  }
+
+  const walked = new Set();
+  for (const j of journeys) {
+    j.steps.forEach((step, i) => {
+      if (!labels.has(step.screen)) error(`${j.role}, step ${i + 1} points at screen ${step.screen}, which does not exist.`);
+      walked.add(step.screen);
+    });
+  }
+
+  for (const r of requirements) {
+    if (!screens.some((s) => s.reqs.includes(r.id))) warn(`Requirement ${r.id} is not shown on any screen.`);
+  }
+  for (const s of screens) {
+    const inJourney = walked.has(s.k) || walked.has(s.parent);
+    if (s.scope && !isExtra(s) && !inJourney) warn(`Screen ${label(s)} is not part of any journey.`);
+    if (s.hasLede === false) warn(`Screen ${label(s)} has no explanation line (<p class="lede">).`);
+    if (isExtra(s) && !s.scopeWhy) warn(`Screen ${label(s)} is an extra with no reason given (data-scope-why).`);
+    if (s.scope === 'required' && s.reqs.length === 0) warn(`Screen ${label(s)} is marked required but cites no requirement.`);
+  }
+  return problems;
+}
+
+function coverage(model) {
+  return model.requirements.map((r) => ({
+    ...r,
+    screens: model.screens.filter((s) => s.reqs.includes(r.id)).map((s) => s.k),
+  }));
+}
+
+function visibleScreens(screens, lean) {
+  return lean ? screens.filter((s) => !isExtra(s)) : screens;
+}
+
+function feedbackText(model, comments, marks) {
+  const p = model.project;
+  const lines = [`Wireframe feedback: ${p.name}, version ${p.version}, ${p.date}`, ''];
+  let any = false;
+  for (const s of model.screens) {
+    const text = (comments[s.id] || '').trim();
+    if (!text) continue;
+    any = true;
+    lines.push(`[${s.k}] ${s.name}: ${text}`);
+  }
+  const signed = [];
+  for (const j of model.journeys) {
+    j.steps.forEach((step, i) => {
+      const mark = marks[markKey(j.role, i)];
+      if (mark) signed.push(`${j.role}, step ${i + 1} (${step.screen}): ${mark}`);
+    });
+  }
+  if (signed.length) {
+    any = true;
+    lines.push('', 'Sign-off', ...signed);
+  }
+  if (!any) lines.push('No feedback has been written yet.');
+  return lines.join('\n');
+}
+/* wf:rules:end */
+
+(function () {
+  const $ = (id) => document.getElementById(id);
+  const esc = (t) => String(t).replace(/[&<>"]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' })[c]);
+  const NOTE_TITLES = { req: 'Requirements shown', open: 'Open decisions', decided: 'Decided', info: 'Notes' };
+
+  /* ---- read the page into a model ---- */
+  const projectEl = $('wf-project');
+  const project = {
+    name: projectEl.dataset.name || 'Wireframes',
+    client: projectEl.dataset.client || '',
+    version: projectEl.dataset.version || '',
+    date: projectEl.dataset.date || '',
+    summary: projectEl.textContent.trim(),
+  };
+  if (projectEl.dataset.accent) {
+    document.documentElement.style.setProperty('--accent-base', projectEl.dataset.accent);
+  }
+  const requirements = [...document.querySelectorAll('#wf-requirements > li')].map((li) => ({
+    id: li.dataset.id || '',
+    text: li.textContent.trim(),
+    source: li.dataset.source || '',
+  }));
+  const journeys = [...document.querySelectorAll('#wf-journeys > ol')].map((ol) => ({
+    role: ol.dataset.role || '',
+    steps: [...ol.querySelectorAll(':scope > li')].map((li) => ({ screen: li.dataset.screen || '', text: li.textContent.trim() })),
+  }));
+  const sections = [...document.querySelectorAll('#wf-screens > section.wf')];
+  const unordered = sections.map((el) => ({
+    el,
+    id: el.id,
+    k: el.dataset.k || '',
+    parent: el.dataset.parent || '',
+    parentName: el.dataset.parentName || '',
+    name: el.dataset.name || '',
+    who: el.dataset.who || '',
+    group: el.dataset.group || '',
+    scope: el.dataset.scope || '',
+    scopeWhy: el.dataset.scopeWhy || '',
+    reqs: [...new Set([...el.querySelectorAll('aside.note[data-kind="req"] code')].map((c) => c.textContent.trim()))],
+    gos: [...el.querySelectorAll('[data-go]')].map((g) => g.dataset.go),
+    open: el.querySelectorAll('aside.note[data-kind="open"] li').length,
+    hasLede: !!el.querySelector(':scope > p.lede'),
+    bodies: el.querySelectorAll(':scope > div.screen').length,
+  }));
+  // Keep each group's screens together, so Next follows the list on the left.
+  const groupOrder = [...new Set(unordered.map((s) => s.group))];
+  const screens = groupOrder.flatMap((g) => unordered.filter((s) => s.group === g));
+  const model = {
+    project, requirements, journeys, screens,
+    sectionCount: document.querySelectorAll('#wf-screens section').length,
+    missingMarkers: ['requirements', 'journeys', 'screens'].map((n) => `<!-- wf:${n} -->`).filter((m) => !document.documentElement.innerHTML.includes(m)),
+  };
+  const problems = collectProblems(model);
+  const errors = problems.filter((p) => p.level === 'error');
+  const warnings = problems.filter((p) => p.level === 'warn');
+
+  /* ---- dress each screen: frame, notes grid, print header ---- */
+  for (const s of screens) {
+    const el = s.el;
+    const body = el.querySelector(':scope > .screen');
+    if (body) {
+      const frame = document.createElement('div');
+      frame.className = 'frame' + (el.dataset.device === 'phone' ? ' phone' : '');
+      body.replaceWith(frame);
+      if (el.dataset.url) {
+        const chrome = document.createElement('div');
+        chrome.className = 'chrome';
+        chrome.innerHTML = `<i></i><i></i><i></i><span class="url">${esc(el.dataset.url)}</span>`;
+        frame.append(chrome);
+      }
+      frame.append(body);
+    }
+    const asides = [...el.querySelectorAll(':scope > aside.note')];
+    if (asides.length) {
+      const grid = document.createElement('div');
+      grid.className = 'notes';
+      asides[0].before(grid);
+      for (const a of asides) {
+        const kind = a.dataset.kind || 'info';
+        a.classList.add(kind);
+        const h = document.createElement('h3');
+        h.textContent = a.dataset.title || NOTE_TITLES[kind] || 'Notes';
+        a.prepend(h);
+        grid.append(a);
+      }
+    }
+    const ph = document.createElement('div');
+    ph.className = 'printhead';
+    ph.innerHTML = `<b>${esc(s.k)} · ${esc(s.name)}</b><span>${esc([s.who, s.scope].filter(Boolean).join(' · '))}</span>`;
+    el.prepend(ph);
+    for (const go of el.querySelectorAll('[data-go]')) {
+      go.tabIndex = 0;
+      go.setAttribute('role', 'button');
+    }
+    el.hidden = true;
+  }
+
+  /* ---- saved state: lean switch, last screen, feedback, sign-off marks ---- */
+  const store = {
+    key: (k) => `wf:${project.name}:${project.version}:${k}`,
+    get(k, fallback) {
+      try { const v = localStorage.getItem(this.key(k)); return v === null ? fallback : JSON.parse(v); } catch (e) { return fallback; }
+    },
+    set(k, v) { try { localStorage.setItem(this.key(k), JSON.stringify(v)); } catch (e) { /* private mode */ } },
+  };
+  let lean = store.get('lean', false);
+  const comments = store.get('comments', {});
+  const marks = store.get('marks', {});
+
+  /* ---- built-in review pages ---- */
+  const jump = (k) => {
+    const target = screens.find((s) => s.k === k) || screens.find((s) => s.parent === k);
+    return target ? `<button class="jump" type="button" data-go="${esc(target.id)}">${esc(k)}</button>` : `<span class="mono">${esc(k)}</span>`;
+  };
+  const views = [
+    {
+      id: 'wf-coverage', name: 'Requirement coverage',
+      lede: 'Every requirement and the screens that show it. A requirement with no screen is either missing a screen or does not need one; decide which.',
+      render() {
+        if (!requirements.length) return '<p class="muted">No requirements are listed in this file yet.</p>';
+        const rows = coverage(model).map((r) => `<tr><td class="mono">${esc(r.id)}</td><td>${esc(r.text)}${r.source ? `<div class="muted" style="font-size:12px">${esc(r.source)}</div>` : ''}</td><td>${r.screens.length ? r.screens.map(jump).join('') : '<span class="bad">not shown yet</span>'}</td></tr>`);
+        return `<div class="tw"><table><tr><th>ID</th><th>Requirement</th><th>Shown on</th></tr>${rows.join('')}</table></div>`;
+      },
+    },
+    {
+      id: 'wf-open', name: 'Open decisions', count: () => screens.reduce((n, s) => n + s.open, 0), countClass: 'warn',
+      lede: 'Every open decision, gathered from the amber notes under the screens. Each one needs an answer before the screen can be signed off.',
+      render() {
+        const rows = [];
+        for (const s of screens) {
+          for (const li of s.el.querySelectorAll('aside.note[data-kind="open"] li')) rows.push(`<tr><td>${jump(s.k)}</td><td>${esc(s.name)}</td><td>${li.innerHTML}</td></tr>`);
+        }
+        if (!rows.length) return '<p class="ok">Nothing is open. Every decision on every screen has an answer.</p>';
+        return `<div class="tw"><table><tr><th>Screen</th><th>Name</th><th>Decision needed</th></tr>${rows.join('')}</table></div>`;
+      },
+    },
+    {
+      id: 'wf-signoff', name: 'Sign-off sheet',
+      lede: 'Walk each journey step by step on the screens. Mark each step agreed or disputed. Print this page for a signature.',
+      render() {
+        if (!journeys.length) return '<p class="muted">No journeys are listed in this file yet.</p>';
+        let html = '';
+        for (const j of journeys) {
+          const rows = j.steps.map((step, i) => {
+            const key = markKey(j.role, i);
+            const opt = (v, t) => `<option value="${v}"${marks[key] === v ? ' selected' : ''}>${t}</option>`;
+            return `<tr><td class="mono">${i + 1}</td><td>${jump(step.screen)}</td><td>${esc(step.text)}</td><td><select data-mark="${esc(key)}" aria-label="Sign-off for step ${i + 1}">${opt('', 'not reviewed')}${opt('agreed', 'agreed')}${opt('dispute', 'dispute')}</select></td></tr>`;
+          });
+          html += `<h2>${esc(j.role)}</h2><div class="tw"><table><tr><th>Step</th><th>Screen</th><th>What happens</th><th>Sign-off</th></tr>${rows.join('')}</table></div>`;
+        }
+        const meta = [project.client, project.version && `version ${project.version}`, project.date].filter(Boolean).join(' · ');
+        return `<div class="printhead"><b>${esc(project.name)} · Sign-off sheet</b><span>${esc(meta)}</span></div>${html}<div class="signline"><div>Name</div><div>Signature</div><div>Date</div></div><p><button class="tool" type="button" id="printview">Print this sheet</button></p>`;
+      },
+    },
+    {
+      id: 'wf-feedback', name: 'Feedback', count: () => screens.filter((s) => (comments[s.id] || '').trim()).length,
+      lede: 'Everything typed into the feedback boxes, plus the sign-off marks, as one block of text. Copy it and paste it back to whoever is updating the wireframes.',
+      render() {
+        return `<p><button class="tool" type="button" id="copyfb">Copy all feedback</button> <button class="tool" type="button" id="printall">Print every screen (save as PDF)</button></p><pre class="card" id="fbtext" style="white-space:pre-wrap;font-family:var(--mono);font-size:12px">${esc(feedbackText(model, comments, marks))}</pre>`;
+      },
+    },
+    {
+      id: 'wf-checks', name: 'File checks', count: () => errors.length || warnings.length, countClass: errors.length ? 'bad' : 'warn', hideWhenClean: true,
+      lede: 'Problems found in this file. Errors break navigation or point at things that do not exist. Warnings are gaps worth a look.',
+      render() {
+        const list = (items, cls) => items.map((p) => `<li class="${cls}">${esc(p.msg)}</li>`).join('');
+        return `<h2>Errors (${errors.length})</h2><ul>${list(errors, 'bad') || '<li class="ok">None.</li>'}</ul><h2>Warnings (${warnings.length})</h2><ul>${list(warnings, 'warnc') || '<li class="ok">None.</li>'}</ul>`;
+      },
+    },
+  ].filter((v) => problems.length || !v.hideWhenClean);
+
+  /* ---- rail ---- */
+  const railEl = $('rail');
+  const visible = () => visibleScreens(screens, lean);
+  const order = () => [...visible().map((s) => s.id), ...views.map((v) => v.id)];
+
+  function buildRail() {
+    railEl.innerHTML = '';
+    const shown = visible();
+    for (const g of [...new Set(shown.map((s) => s.group))]) {
+      const box = document.createElement('div');
+      box.className = 'group';
+      box.innerHTML = `<h4>${esc(g)}</h4>`;
+      let lastParent = '';
+      for (const s of shown.filter((x) => x.group === g)) {
+        if (s.parent && s.parent !== lastParent) {
+          const p = document.createElement('div');
+          p.className = 'parent';
+          p.textContent = `${s.parent} ${s.parentName || screens.find((x) => x.parent === s.parent && x.parentName)?.parentName || ''}`;
+          box.append(p);
+        }
+        lastParent = s.parent;
+        const b = document.createElement('button');
+        b.type = 'button';
+        b.dataset.id = s.id;
+        b.className = (s.parent ? 'sub ' : '') + (isExtra(s) ? 'x' : '');
+        b.innerHTML = `<span class="k">${esc(s.k)}</span><span>${esc(s.name)}</span>`;
+        box.append(b);
+      }
+      railEl.append(box);
+    }
+    const box = document.createElement('div');
+    box.className = 'group';
+    box.innerHTML = '<h4>Review</h4>';
+    for (const v of views) {
+      const n = v.count ? v.count() : 0;
+      const b = document.createElement('button');
+      b.type = 'button';
+      b.dataset.id = v.id;
+      b.innerHTML = `<span>${esc(v.name)}</span>${n ? `<span class="count ${v.countClass || ''}">${n}</span>` : ''}`;
+      box.append(b);
+    }
+    railEl.append(box);
+    const lt = $('leantoggle');
+    lt.hidden = !screens.some(isExtra);
+    lt.textContent = lean ? `Showing the lean set (${shown.length}). Show all ${screens.length}` : `Showing all ${screens.length}. Show the lean set`;
+  }
+
+  /* ---- show one screen or review page ---- */
+  let current = '';
+  const isViewId = (id) => views.some((v) => v.id === id);
+  function setLean(on) {
+    lean = on;
+    store.set('lean', lean);
+    buildRail();
+  }
+  function markRail(id, scroll) {
+    for (const b of railEl.querySelectorAll('button')) {
+      const on = b.dataset.id === id;
+      b.setAttribute('aria-current', on ? 'true' : 'false');
+      if (on && scroll) b.scrollIntoView({ block: 'nearest' });
+    }
+  }
+  function renderHeader(s, v) {
+    $('title').textContent = s ? `${s.k} · ${s.name}` : v.name;
+    $('who').textContent = s ? s.who : '';
+    const pill = $('scope');
+    pill.hidden = !(s && s.scope);
+    if (s && s.scope) {
+      pill.className = `scopepill ${s.scope}`;
+      pill.textContent = s.scope;
+      pill.title = s.scopeWhy;
+    }
+    $('pos').textContent = s ? `screen ${visible().indexOf(s) + 1} of ${visible().length}` : 'review';
+  }
+  function show(id, updateHash = true) {
+    if (lean && screens.some((x) => x.id === id && isExtra(x))) setLean(false);
+    const all = order();
+    if (!all.includes(id)) id = all[0];
+    current = id;
+    const s = screens.find((x) => x.id === id);
+    const v = views.find((x) => x.id === id);
+    for (const x of screens) x.el.hidden = x.id !== id;
+    const viewEl = $('wf-view');
+    viewEl.hidden = !v;
+    document.body.classList.toggle('printview', !!v);
+    if (v) viewEl.innerHTML = `<p class="lede">${esc(v.lede)}</p>${v.render()}`;
+    renderHeader(s, v);
+    const i = all.indexOf(id);
+    for (const b of [$('prev'), $('prev2')]) b.disabled = i <= 0;
+    for (const b of [$('next'), $('next2')]) b.disabled = i >= all.length - 1;
+    $('feedback').hidden = !s;
+    if (s) $('fb').value = comments[s.id] || '';
+    markRail(id, true);
+    document.querySelector('.rail').classList.remove('open');
+    store.set('screen', id);
+    if (updateHash) history.replaceState(null, '', `#${encodeURIComponent(id)}`);
+    window.scrollTo(0, 0);
+  }
+  const step = (d) => { const all = order(); const i = all.indexOf(current) + d; if (i >= 0 && i < all.length) show(all[i]); };
+
+  function copyText(text, promptLabel, button) {
+    const label = button.textContent;
+    const done = () => { button.textContent = 'Copied'; setTimeout(() => { button.textContent = label; }, 1200); };
+    if (navigator.clipboard) navigator.clipboard.writeText(text).then(done, () => window.prompt(promptLabel, text));
+    else window.prompt(promptLabel, text);
+  }
+
+  /* ---- wiring ---- */
+  document.title = `${project.name} wireframes`;
+  $('brandname').textContent = `${project.name} wireframes`;
+  $('brandmeta').textContent = [project.client, project.version && `v${project.version}`, project.date].filter(Boolean).join(' · ');
+  buildRail();
+  railEl.addEventListener('click', (e) => { const b = e.target.closest('button[data-id]'); if (b) show(b.dataset.id); });
+  document.querySelector('.stage').addEventListener('click', (e) => {
+    const go = e.target.closest('[data-go]');
+    if (go) return show(go.dataset.go);
+    if (e.target.id === 'printview' || e.target.id === 'printall') {
+      document.body.classList.toggle('printview', e.target.id === 'printview');
+      window.addEventListener('afterprint', () => document.body.classList.toggle('printview', isViewId(current)), { once: true });
+      window.print();
+    }
+    if (e.target.id === 'copyfb') copyText($('fbtext').textContent, 'Copy this text', e.target);
+  });
+  document.querySelector('.stage').addEventListener('change', (e) => {
+    if (!e.target.dataset.mark) return;
+    if (e.target.value) marks[e.target.dataset.mark] = e.target.value; else delete marks[e.target.dataset.mark];
+    store.set('marks', marks);
+  });
+  $('fb').addEventListener('input', () => {
+    if ($('fb').value.trim()) comments[current] = $('fb').value; else delete comments[current];
+    store.set('comments', comments);
+    buildRail();
+    markRail(current, false);
+  });
+  $('leantoggle').addEventListener('click', () => {
+    const leavingExtra = !lean && screens.some((x) => x.id === current && isExtra(x));
+    setLean(!lean);
+    show(leavingExtra ? visible()[0]?.id : current);
+  });
+  $('railtoggle').addEventListener('click', () => document.querySelector('.rail').classList.toggle('open'));
+  for (const id of ['prev', 'prev2']) $(id).addEventListener('click', () => step(-1));
+  for (const id of ['next', 'next2']) $(id).addEventListener('click', () => step(1));
+  $('copy').addEventListener('click', () => copyText(`${location.href.split('#')[0]}#${encodeURIComponent(current)}`, 'Link to this screen', $('copy')));
+  document.addEventListener('keydown', (e) => {
+    if (e.target.closest('textarea,input,select') || e.metaKey || e.ctrlKey || e.altKey) return;
+    const go = (e.key === 'Enter' || e.key === ' ') && e.target.closest('section.wf [data-go]');
+    if (go) { e.preventDefault(); return show(go.dataset.go); }
+    if (e.key === 'ArrowRight') step(1);
+    if (e.key === 'ArrowLeft') step(-1);
+  });
+  const hashId = () => { try { return decodeURIComponent(location.hash.slice(1)); } catch (e) { return ''; } };
+  window.addEventListener('hashchange', () => show(hashId(), false));
+  show(hashId() || (errors.length ? 'wf-checks' : store.get('screen', '')), false);
+})();
+</script>
+</body>
+</html>

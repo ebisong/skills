@@ -1,0 +1,50 @@
+# Builds one zip per skill and attaches it to the "downloads" release, so people
+# using the Claude desktop app or claude.ai can upload a skill without git.
+# The README links to these files by name.
+name: release-zips
+
+on:
+  push:
+    branches: [main]
+    paths: ["skills/**", "scripts/zip-skills.sh", ".github/workflows/release-zips.yml"]
+  workflow_dispatch:
+
+# One publish at a time, never cancelled: a cancelled upload could leave a zip
+# deleted and not replaced. A newer run waits for the one in flight.
+concurrency:
+  group: release-zips
+  cancel-in-progress: false
+
+permissions: {}
+
+jobs:
+  zips:
+    runs-on: ubuntu-latest
+    # Publishing release files needs write access. Nothing else in this repo gets it.
+    permissions:
+      contents: write
+    steps:
+      # Pinned to a commit so a moved tag cannot change what runs with write access.
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4.4.0
+        with:
+          # Always build from the tip of main, not the commit that triggered the run.
+          # Runs are serialized, so whichever run goes last publishes the newest skills.
+          ref: main
+          persist-credentials: false
+      - name: Zip each skill with its folder at the root of the zip
+        run: bash scripts/zip-skills.sh dist
+      - name: Publish to the downloads release
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh release view downloads >/dev/null 2>&1 || gh release create downloads \
+            --title "Skill downloads" \
+            --notes "One zip per skill, rebuilt on every change to main. Upload a zip in Claude under Customize > Skills."
+          # --clobber removes the old file before uploading, so retry rather than leave a
+          # README link dead. If all tries fail, re-run this workflow from the Actions tab.
+          for attempt in 1 2 3; do
+            gh release upload downloads dist/*.zip --clobber && exit 0
+            echo "Upload attempt $attempt failed."
+            sleep $((attempt * 10))
+          done
+          exit 1
