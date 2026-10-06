@@ -154,7 +154,7 @@ Repeat the same `topbar` or `side` menu on every screen of the same app area, wi
 | `empty` | A dashed box for "nothing here yet". Say what to do next inside it. |
 | `prog` | A progress bar: `<div class="prog"><b style="width:60%"></b></div>`. |
 | `toast` | A small dark confirmation message. |
-| `modal` | A dialog box, centered. To show it over a page, wrap the page content in `<div class="dim">` and put the `modal` after it. |
+| `modal` | A dialog box, centered. To show it over a page, wrap the page content in `<div class="dim">` and put the `modal` after it. A short `ph` naming the page is enough inside `dim`. |
 | `fold` | A collapsed row that would expand. Add `open` and follow it with the content when drawn expanded. For long lists, show three or four rows and one `fold` saying how many more. |
 | `mail` | An email. Start with `<div class="hdr">From: ... · To: ...</div>`. |
 | `chat` + `msg` | A conversation or text message. `msg me` is the person's own message. |
@@ -175,6 +175,9 @@ Use `<h2>` for the page title inside a screen and `<h3>` for section titles.
 <div><span class="label">Email</span><div class="field filled">maya@example.com</div></div>
 <div><span class="label">Phone</span><div class="field filled error">555 010</div><div class="help error">That number looks too short.</div></div>
 <div class="field area">Longer text</div>
+<div class="field select filled">Weekly</div>   <!-- a dropdown -->
+<div class="toggle on"><i></i>Email me a weekly summary</div>
+<div class="toggle"><i></i>Send reminders</div>
 
 <div class="choice on"><i></i>Selected option</div>
 <div class="choice"><i></i>Another option</div>
@@ -202,6 +205,8 @@ A `style` attribute is fine for spacing and sizing only: `style="margin-top:14px
 **Form.** `stack` of label and field pairs, one primary button at the bottom. Draw the error state as its own screen with one field marked `error`.
 
 **Dashboard.** `cols c3` or `cols c4` of cards with `num`, then a table or a `ph` chart below.
+
+**Comparison.** One `card` per thing being compared inside `cols c3` or `cols c4`, each starting with an `<h5>` naming it. Put the thing they are compared against in a full-width `card` above.
 
 **Empty state.** The same page frame with an `empty` box where the content would be, saying what is missing and the one thing to do next.
 

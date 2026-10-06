@@ -37,10 +37,10 @@ Ask for whatever they have: the statement of work, a brief, proposals, meeting n
 
 Read before asking anything, in this order:
 
-1. **Find the document that governs.** Usually the signed statement of work. When there are several versions, use the newest signed one, and tell the person which one you used and why.
+1. **Find the document that governs.** Usually the signed statement of work. When there are several versions, use the newest signed one, and tell the person which one you used and why. If no copy is marked as signed, look for proof nearby, like a signature email or a later document that calls one version final. If you still can't tell, ask.
 2. **Read that one in full.** It decides what is in scope.
 3. **Skim the rest for detail** the governing document leaves out: exact wording, field lists, rules, examples. With a large pile, read what the governing document refers to and skip the rest.
-4. **Note where documents disagree.** A count that differs between two documents, or a feature one mentions and the other doesn't, becomes an open decision later. Never settle it quietly yourself.
+4. **Note where documents disagree.** A count that differs between two documents, or a feature one mentions and the other doesn't, becomes an open decision later. Never settle it quietly yourself. If the disagreement doesn't belong to any one screen, put it on the guide page.
 
 If they have no documents, interview them instead. Start with "Who uses this, and what is the first thing each of them needs to do?"
 
