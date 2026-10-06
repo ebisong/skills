@@ -7,6 +7,10 @@ description: Run the NLP Well-Formed Outcome frame on a goal, feature, or agent 
 
 Run the 7-condition Well-Formed Outcome frame on any input. Works for product features, agent designs, personal goals, or business decisions. Forces clarity before action.
 
+## Where this comes from
+
+Outcome framing is one of the first things taught in NLP, neuro-linguistic programming, which looks at how the words we use shape what we do. AI agents are built from our language, so the questions that make a goal clear to a person make it clear to an agent too. That is why every condition below has an agent version.
+
 ## Mode Detection
 
 Read the input. Pick the right mode.
