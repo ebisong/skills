@@ -9,14 +9,19 @@ on:
     paths: ["skills/**", ".github/workflows/release-zips.yml"]
   workflow_dispatch:
 
-permissions:
-  contents: write
+permissions: {}
 
 jobs:
   zips:
     runs-on: ubuntu-latest
+    # Publishing release files needs write access. Nothing else in this repo gets it.
+    permissions:
+      contents: write
     steps:
-      - uses: actions/checkout@v4
+      # Pinned to a commit so a moved tag cannot change what runs with write access.
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4.4.0
+        with:
+          persist-credentials: false
       - name: Zip each skill with its folder at the root of the zip
         run: bash scripts/zip-skills.sh dist
       - name: Publish to the downloads release

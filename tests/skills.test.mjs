@@ -1,6 +1,6 @@
 import assert from "node:assert/strict";
-import { execFileSync } from "node:child_process";
-import { mkdtempSync, readdirSync, readFileSync } from "node:fs";
+import { execFileSync, spawnSync } from "node:child_process";
+import { copyFileSync, mkdirSync, mkdtempSync, readdirSync, readFileSync, symlinkSync, writeFileSync } from "node:fs";
 import { tmpdir } from "node:os";
 import { dirname, join, resolve } from "node:path";
 import { test } from "node:test";
@@ -38,6 +38,22 @@ test("zip-skills.sh writes one zip per skill with the folder at the zip root", (
     assert.ok(entries.includes(`${skill}/SKILL.md`));
     assert.ok(entries.every((e) => e.startsWith(`${skill}/`)), "nothing sits outside the skill folder");
   }
+});
+
+test("zip-skills.sh refuses a skill that contains a symlink", () => {
+  const repo = mkdtempSync(join(tmpdir(), "zips-repo-"));
+  mkdirSync(join(repo, "scripts"));
+  mkdirSync(join(repo, "skills/leaky"), { recursive: true });
+  copyFileSync(join(root, "scripts/zip-skills.sh"), join(repo, "scripts/zip-skills.sh"));
+  writeFileSync(join(repo, "skills/leaky/SKILL.md"), "---\nname: leaky\n---\n");
+  writeFileSync(join(repo, "outside.txt"), "not part of the skill");
+  symlinkSync(join(repo, "outside.txt"), join(repo, "skills/leaky/notes.txt"));
+
+  const out = join(repo, "dist");
+  const run = spawnSync("bash", [join(repo, "scripts/zip-skills.sh"), out], { encoding: "utf8" });
+  assert.equal(run.status, 1);
+  assert.match(run.stderr, /symlink/);
+  assert.deepEqual(readdirSync(out), []);
 });
 
 test("the README links a download for every skill", () => {
