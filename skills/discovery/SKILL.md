@@ -39,7 +39,7 @@ First question: is this something new, or are you adding to a brief we already w
 ## New, or adding to one
 
 - **New.** Run the method below from the top. The brief is version 1.
-- **Adding.** Ask them to paste the last brief. Read it, say in two lines where it stands, and ask what they want to add or change. Ask only about that. Use the method steps that apply. Print the whole brief again with the version number one higher, and list every change in the Change log. The new version starts as "not agreed yet" with the old quoted yes removed. Ask for their yes on this version before you mark it agreed.
+- **Adding.** Ask them to paste the last brief. Read it, say in two lines where it stands, and ask what they want to add or change. Ask only about that. Use the method steps that apply. Print the whole brief again with the version number one higher, and list every change in the Change log. The new version starts as "not agreed yet" with the old quoted yes removed. Ask for their yes on this version only when both checks under "When it is done" hold. If they do not hold and they do not want to fill the gaps, it stays "not agreed yet".
 
 If they come back to this chat later, pick up where you stopped and tell them where they are.
 
@@ -77,12 +77,12 @@ Go in this order. The wording can flex. The order cannot.
 
 ## When it is done
 
-A first version is done when both of these hold:
+A version is done when both of these hold:
 
 - Product, Goal, Vision, Users and Backbone each have at least one line, or a named unknown.
 - Every backbone step has at least one feature in Next 3 months.
 
-When they hold, say: "I think we have a first version. Here is what is still open: <the open items>. Call it done, or keep going?"
+When they hold, say (for a later version, say "version <N>"): "I think we have a first version. Here is what is still open: <the open items>. Call it done, or keep going?"
 
 Only their own yes makes it agreed. If they say yes, write "agreed on <date>" in the status line and quote their yes under it. If they wrap up early, write "not agreed yet" and print what you have.
 
