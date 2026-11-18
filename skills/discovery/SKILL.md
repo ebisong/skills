@@ -126,7 +126,7 @@ Go through every feature in Next 3 months. A feature is **clear** when all of th
 - It has a why that came from something that happened, not from "it would be nice".
 - They have said what the user does or sees there, in enough detail to picture it. A name alone, like "reporting" or "notifications", is thin.
 - They have said what happens when it goes wrong or there is nothing to show yet.
-- No open question or unsettled conflict about what they want touches it. A question about price, dates or what is included belongs to the builder and never makes a feature thin.
+- No open question or unsettled conflict about what they want touches it. That covers anything unsettled about what the feature does or shows. A question about price, dates or what a quote covers belongs to the builder and never makes a feature thin.
 
 Also count it against the brief if the Goal has no past event behind it, if a new product's Backbone has fewer than three steps (a feature can be complete in one or two), or if no user is marked as the main one.
 
