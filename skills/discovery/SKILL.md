@@ -117,7 +117,7 @@ A version is done when all of these hold:
 
 When they hold, print the brief as a draft first, with the status "not agreed yet", so they agree to what they can read. Under it say (for a later version, say "version <N>"): "I think we have a first version. Here is what is still open: <the open items>. Call it done, or keep going?"
 
-Only their own yes makes it agreed. If they say yes, print the brief again with "agreed on <date>" in the status line and their yes quoted under it. If they ask for changes, make them and show the draft again before asking. If they wrap up early, write "not agreed yet" and print what you have.
+Only their own yes makes it agreed. If they say yes, print the brief again with "agreed on <date>" in the status line and their yes quoted under it. If they ask for changes, make them and run the checks above again. If they still hold, show the draft again before asking. If one no longer holds, say which and ask the question that fills it; do not ask for a yes until they all hold. If they wrap up early, write "not agreed yet" and print what you have.
 
 ## The brief
 
