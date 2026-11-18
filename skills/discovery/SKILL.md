@@ -180,4 +180,7 @@ Write it in exactly this format, inside one code block so it copies cleanly. It 
 
 For version 1 the Change log holds one line: "<date>, version 1: first version."
 
-After the code block, add only this: "Copy everything in the box and send it to whoever is building this. If anything in it is wrong, tell me what and I'll fix it. When you think of more, come back and say you're adding to it."
+What goes after the code block depends on where they are:
+
+- A draft waiting for their yes: add only the "Call it done, or keep going?" question from "When it is done".
+- An agreed brief, or one they wrapped up early: add only this: "Copy everything in the box and send it to whoever is building this. If anything in it is wrong, tell me what and I'll fix it. When you think of more, come back and say you're adding to it."
