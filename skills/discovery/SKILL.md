@@ -32,20 +32,21 @@ It works in any chat assistant, as a skill or pasted in as plain text.
 
 Send this, in your own words but no longer:
 
-"Hi, I'm here to help you flesh out your idea. We use a simple framework, and you can stop whenever you like and pick up later. Ramble as much as you want. A dictation tool helps.
+"Hi, I'm going to help you flesh this out. We use a simple framework, and you can stop whenever you like and pick up later. Ramble as much as you want. A dictation tool helps.
 
-First question: is this a new product or idea, a feature for something you already have, or an addition to a brief we already wrote?"
+First, do you already have anything on this I can read? A folder, notes, an earlier brief, what's built so far. Attach it or paste it in. If not, say 'nothing' and we start clean."
 
-## What you already know
+## The first three messages
 
-Do this before the method, for all three kinds.
+Keep the start this short. Context, then your summary, then what they want.
 
-1. Look at what you can already see. That is this chat, files attached to it or to this project, your memory of earlier chats with this person, and any connected drive or notes. Use only what you can open. Do not guess at what a file or an earlier chat said.
-2. Ask once for the rest: "Paste or attach anything you already have. What is built so far, an earlier brief, notes, a screenshot, a link's text. Or say 'nothing' and we start clean."
-3. Write back a short list headed "Here is what I already know", ten lines at most. Cover what is built and working today, who uses it, and anything already decided. Say where each line came from, like "from your notes" or "from our earlier chat". Ask what is wrong or out of date.
-4. From then on, do not ask for anything that list settles. Ask them to confirm it instead.
+1. **Context.** The opening message asks for it. Also look at what you can already see: this chat, files attached to it or to this project, your memory of earlier chats with this person, and any connected drive or notes. Use only what you can open. Do not guess at what a file or an earlier chat said.
+2. **Your summary.** Write back a short list headed "Here is what I have", ten lines at most. Cover what is built and working today, who uses it, and anything already decided. Say where each line came from, like "from your notes" or "from our earlier chat". End it with the next question in the same message: "Tell me what's wrong or out of date in that. Then, what do you want to build?" This is the one place a message carries a correction and a question together.
+3. **What they want.** Their answer tells you which kind this is. Do not ask them to pick one. If the context shows nothing built, it is a new product or idea. If something is built and they want one thing added or changed, it is a feature. If they gave you an earlier brief from this skill and want to add to it, it is an addition. If you cannot tell, ask one short question.
 
-What they correct or confirm counts as theirs. A line they never confirmed goes in the brief marked "(from context, not confirmed)". If you can see nothing and they paste nothing, skip this and start the method.
+If they have no context and you can see none, skip the summary and ask: "No problem. What do you want to build?"
+
+From then on, do not ask for anything the summary settles. Ask them to confirm it instead. What they correct or confirm counts as theirs. A line they never confirmed goes in the brief marked "(from context, not confirmed)".
 
 ## New, a feature, or adding to one
 
@@ -56,7 +57,7 @@ What they correct or confirm counts as theirs. A line they never confirmed goes 
   - Backbone: the main user's steps from the moment they need this feature to the moment they have what they came for. Include the steps just before and after if the product already handles them, and mark those "(exists today)".
   - Details and the slice: the same as for a product. "Next 3 months" is the first version of the feature.
   - Under What exists already, list what the feature has to fit with or must not break.
-- **Adding.** Ask them to paste the last brief. Read it, say in two lines where it stands, and ask what they want to add or change. Ask only about that. Use the method steps that apply. Print the whole brief again with the version number one higher, and list every change in the Change log. The new version starts as "not agreed yet" with the old quoted yes removed. Ask for their yes on this version only when the checks under "When it is done" hold. If they do not hold and they do not want to fill the gaps, it stays "not agreed yet".
+- **Adding.** If they have not given you the last brief yet, ask them to paste it. Read it, say in two lines where it stands, and ask what they want to add or change. Ask only about that. Use the method steps that apply. Print the whole brief again with the version number one higher, and list every change in the Change log. The new version starts as "not agreed yet" with the old quoted yes removed. Ask for their yes on this version only when the checks under "When it is done" hold. If they do not hold and they do not want to fill the gaps, it stays "not agreed yet".
 
 If they come back to this chat later, pick up where you stopped and tell them where they are.
 
