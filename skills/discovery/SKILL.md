@@ -101,7 +101,7 @@ They should always know where they are and where this is going.
 
 - **Say the part.** Start the first question of each part with where they are, like "Part 3 of 5, their day step by step."
 - **Check in at the end of each part.** In one message, three lines at most: what you now have from that part, what is left, and "Say 'show me' to see the page so far, or we keep going." Then ask the next part's first question in the same message. This is the other place a message carries more than the question.
-- **"Show me".** Print the brief in its format with what you have, status "not agreed yet", and "Nothing here yet." under empty headings. Then say which part you are in and carry on from the same question.
+- **"Show me".** Print the brief in its format with what you have and "Nothing here yet." under empty headings. Keep the status it has: "not agreed yet" while you are still working, or its "agreed on" line if it is agreed and nothing has changed since. Then say which part you are in and carry on from the same question.
 - **"Summary".** Five lines at most, in plain sentences, no brief. Then carry on.
 - **Do not let a part run on.** In part 4, ask about a step until they have named what it must do, three features at most unless they keep going on their own, then move to the next step. If they have more, say it can be added later and move on. If a part has taken more than about ten of their messages, check in and offer to move on.
 - **If they ask where this is going,** answer in two lines: the part you are in, how many are left, and that it ends with one page for the builder. Offer "show me" or "wrap up".
