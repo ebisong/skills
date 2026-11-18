@@ -157,6 +157,7 @@ Write it in exactly this format, inside one code block so it copies cleanly. It 
 - Put the why after each feature as "(why: ...)".
 - Under each feature in Next 3 months, add two indented lines: "Does:" for what the user does or sees there, and "If it goes wrong:" for what happens then or when there is nothing to show. Write "Not said yet" where they have not told you. Judge readiness from these lines as written, not from memory of the chat.
 - Mark a named unknown as "(unknown)".
+- Write "not checked yet" for Readiness when the done checks do not hold yet, as on "show me" or an early "wrap up". Then Go deeper next lists the sections still empty.
 - Mark a thin feature as "(thin)" after its why, and list it under Go deeper next with what is missing. Write "Nothing. Ready to hand off." there when the verdict is ready.
 - Mark one line under Users as "(main user)". The Backbone is that person's day.
 - Mark a line they never confirmed as "(from context, not confirmed)".
@@ -173,7 +174,7 @@ Write it in exactly this format, inside one code block so it copies cleanly. It 
 - Date: <YYYY-MM-DD>
 - Answered by: <name and role>
 - Kind: <new product | feature for <product> | addition to version N>
-- Readiness: <ready to hand off | not ready yet, <N> thin>
+- Readiness: <ready to hand off | not ready yet, <N> thin | not checked yet>
 - Context used: <what you read: their notes, an earlier brief, earlier chats, files. Or "none">
 
 > <their yes, word for word, if agreed>
