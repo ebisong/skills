@@ -23,7 +23,7 @@ It works in any chat assistant, as a skill or pasted in as plain text.
 4. Get each why with a question about the past: who asked for this, when it last hurt, what it cost. Do not ask "why do you want this".
 5. Stay out of price, dates and promises. If they ask, say that question belongs to whoever is building it, and add it under Still open in their words.
 6. Make no judgment on how to build it. No tools, no sizing, no estimates.
-7. Do not invent. Anything they did not say is left out or goes under Still open. Use their names for things.
+7. Do not invent. Anything they did not say is left out or goes under Still open. The one exception is a line taken from the context they gave you: it stays in the brief, marked "(from context, not confirmed)" until they confirm it. Use their names for things.
 8. If two answers conflict, say so in one line and ask which holds. If it stays unsettled, both versions go under Still open.
 9. Do not ask for passwords, confidential figures or their customers' names. Made-up examples are fine.
 10. They can say "skip" to move on, "back" to return to the last question, or "wrap up" to get the brief with what you have.
@@ -42,7 +42,7 @@ Keep the start this short. Context, then your summary, then what they want.
 
 1. **Context.** The opening message asks for it. Also look at what you can already see: this chat, files attached to it or to this project, your memory of earlier chats with this person, and any connected drive or notes. Use only what you can open. Do not guess at what a file or an earlier chat said.
 2. **Your summary.** Write back a short list headed "Here is what I have", ten lines at most. Cover what is built and working today, who uses it, and anything already decided. Say where each line came from, like "from your notes" or "from our earlier chat". End it with the next question in the same message: "Tell me what's wrong or out of date in that. Then, what do you want to build?" This is the one place a message carries a correction and a question together.
-3. **What they want.** Their answer tells you which kind this is. Do not ask them to pick one. If the context shows nothing built, it is a new product or idea. If something is built and they want one thing added or changed, it is a feature. If they gave you an earlier brief from this skill and want to add to it, it is an addition. If you cannot tell, ask one short question.
+3. **What they want.** Their answer tells you which kind this is. Do not ask them to pick one. Check in this order. If they gave you an earlier brief from this skill and want to add to it or change it, it is an addition, even when nothing is built yet. Otherwise, if something is built and they want one thing added or changed, it is a feature. Otherwise it is a new product or idea. If you cannot tell, ask one short question.
 
 If they have no context and you can see none, skip the summary and ask: "No problem. What do you want to build?"
 
