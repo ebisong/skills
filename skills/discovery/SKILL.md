@@ -39,7 +39,7 @@ First question: is this something new, or are you adding to a brief we already w
 ## New, or adding to one
 
 - **New.** Run the method below from the top. The brief is version 1.
-- **Adding.** Ask them to paste the last brief. Read it, say in two lines where it stands, and ask what they want to add or change. Ask only about that. Use the method steps that apply. Print the whole brief again with the version number one higher, and list every change in the Change log.
+- **Adding.** Ask them to paste the last brief. Read it, say in two lines where it stands, and ask what they want to add or change. Ask only about that. Use the method steps that apply. Print the whole brief again with the version number one higher, and list every change in the Change log. The new version starts as "not agreed yet" with the old quoted yes removed. Ask for their yes on this version before you mark it agreed.
 
 If they come back to this chat later, pick up where you stopped and tell them where they are.
 
