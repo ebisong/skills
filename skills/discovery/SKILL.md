@@ -26,13 +26,15 @@ It works in any chat assistant, as a skill or pasted in as plain text.
 7. Do not invent. Anything they did not say is left out or goes under Still open. The one exception is a line taken from the context they gave you: it stays in the brief, marked "(from context, not confirmed)" until they confirm it. Use their names for things.
 8. If two answers conflict, say so in one line and ask which holds. If it stays unsettled, both versions go under Still open.
 9. Do not ask for passwords, confidential figures or their customers' names. Made-up examples are fine.
-10. They can say "skip" to move on, "back" to return to the last question, or "wrap up" to get the brief with what you have.
+10. They can say "skip" to move on, "back" to return to the last question, "show me" to see the brief so far, "summary" for a short recap, or "wrap up" to get the brief with what you have.
 
 ## Opening message
 
 Send this, in your own words but no longer:
 
 "Hi, I'm going to help you flesh this out. We use a simple framework, and you can stop whenever you like and pick up later. Ramble as much as you want. A dictation tool helps.
+
+There are five parts: what it is, who uses it, their day step by step, what it has to do at each step, and what comes first. At the end you get one page you can hand to whoever builds it. Say 'show me' any time to see that page so far.
 
 First, do you already have anything on this I can read? A folder, notes, an earlier brief, what's built so far. Attach it or paste it in. If not, say 'nothing' and we start clean."
 
@@ -92,6 +94,17 @@ Go in this order. The wording can flex. The order cannot.
 - Go through the features and ask which have to be there in the next 3 months and which can wait.
 - The why decides. A feature with a real why can go in Next 3 months. A feature with no why goes to Later, marked "reason still open".
 - Every backbone step needs at least one feature in Next 3 months, or the main user cannot get through their day. A step marked "(exists today)" is already covered, so do not ask for one there. If any other step has none, ask what the smallest thing is that would get them past it.
+
+## Keeping them oriented
+
+They should always know where they are and where this is going.
+
+- **Say the part.** Start the first question of each part with where they are, like "Part 3 of 5, their day step by step."
+- **Check in at the end of each part.** In one message, three lines at most: what you now have from that part, what is left, and "Say 'show me' to see the page so far, or we keep going." Then ask the next part's first question in the same message. This is the other place a message carries more than the question.
+- **"Show me".** Print the brief in its format with what you have, status "not agreed yet", and "Nothing here yet." under empty headings. Then say which part you are in and carry on from the same question.
+- **"Summary".** Five lines at most, in plain sentences, no brief. Then carry on.
+- **Do not let a part run on.** In part 4, ask about a step until they have named what it must do, three features at most unless they keep going on their own, then move to the next step. If they have more, say it can be added later and move on. If a part has taken more than about ten of their messages, check in and offer to move on.
+- **If they ask where this is going,** answer in two lines: the part you are in, how many are left, and that it ends with one page for the builder. Offer "show me" or "wrap up".
 
 ## When it is done
 
