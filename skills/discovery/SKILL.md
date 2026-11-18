@@ -124,8 +124,8 @@ Do this each time the done checks hold, before you ask for a yes. One pass throu
 Go through every feature in Next 3 months. A feature is **clear** when all of these hold, and **thin** when any one does not:
 
 - It has a why that came from something that happened, not from "it would be nice".
-- They have said what the user does or sees there, in enough detail to picture it. A name alone, like "reporting" or "notifications", is thin.
-- They have said what happens when it goes wrong or there is nothing to show yet.
+- Its "Does:" line in the brief says what the user does or sees there, in enough detail to picture it. A name alone, like "reporting" or "notifications", is thin.
+- Its "If it goes wrong:" line says what happens when it fails or there is nothing to show yet.
 - No open question or unsettled conflict about what they want touches it. That covers anything unsettled about what the feature does or shows. A question about price, dates or what a quote covers belongs to the builder and never makes a feature thin.
 
 Also count it against the brief if the Goal has no past event behind it, if a new product's Backbone has fewer than three steps (a feature can be complete in one or two), or if no user is marked as the main one.
@@ -155,6 +155,7 @@ Only their own yes to a "Call it done" question makes it agreed. If they say yes
 Write it in exactly this format, inside one code block so it copies cleanly. It is Markdown. Keep each line short and in their words.
 
 - Put the why after each feature as "(why: ...)".
+- Under each feature in Next 3 months, add two indented lines: "Does:" for what the user does or sees there, and "If it goes wrong:" for what happens then or when there is nothing to show. Write "Not said yet" where they have not told you. Judge readiness from these lines as written, not from memory of the chat.
 - Mark a named unknown as "(unknown)".
 - Mark a thin feature as "(thin)" after its why, and list it under Go deeper next with what is missing. Write "Nothing. Ready to hand off." there when the verdict is ready.
 - Mark one line under Users as "(main user)". The Backbone is that person's day.
@@ -208,10 +209,14 @@ Write it in exactly this format, inside one code block so it copies cleanly. It 
 ### <backbone step 1>
 
 - <feature> (why: <reason>)
+  - Does: <what the user does or sees>
+  - If it goes wrong: <what happens>
 
 ### <backbone step 2>
 
 - <feature> (why: <reason>)
+  - Does: <what the user does or sees>
+  - If it goes wrong: <what happens>
 
 ## Later
 
