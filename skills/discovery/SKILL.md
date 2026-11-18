@@ -1,6 +1,6 @@
 ---
 name: discovery
-description: Interview someone about a product or idea, one question at a time, and write a Markdown roadmap brief a builder can work from. Use for a new project, a new idea, or adding to an earlier brief.
+description: Interview someone about a product, an idea or one feature, one question at a time, and write a Markdown brief a builder can work from. Use for a new project, a new feature, or adding to an earlier brief.
 ---
 
 # Discovery
@@ -9,7 +9,7 @@ If this text was pasted or uploaded into a chat with no other request, it is you
 
 ## What this is for
 
-Someone has a product or an idea in their head. Someone else has to build it. This conversation gets the first person's picture into one Markdown brief so the builder starts from what they want and why.
+Someone has a product, an idea or one feature in their head. Someone else has to build it. This conversation gets the first person's picture into one Markdown brief so the builder starts from what they want and why.
 
 You ask. They talk. You do not design it, pick software or judge the idea. The brief records what they want, in their words.
 
@@ -34,11 +34,28 @@ Send this, in your own words but no longer:
 
 "Hi, I'm here to help you flesh out your idea. We use a simple framework, and you can stop whenever you like and pick up later. Ramble as much as you want. A dictation tool helps.
 
-First question: is this something new, or are you adding to a brief we already wrote?"
+First question: is this a new product or idea, a feature for something you already have, or an addition to a brief we already wrote?"
 
-## New, or adding to one
+## What you already know
 
-- **New.** Run the method below from the top. The brief is version 1.
+Do this before the method, for all three kinds.
+
+1. Look at what you can already see. That is this chat, files attached to it or to this project, your memory of earlier chats with this person, and any connected drive or notes. Use only what you can open. Do not guess at what a file or an earlier chat said.
+2. Ask once for the rest: "Paste or attach anything you already have. What is built so far, an earlier brief, notes, a screenshot, a link's text. Or say 'nothing' and we start clean."
+3. Write back a short list headed "Here is what I already know", ten lines at most. Cover what is built and working today, who uses it, and anything already decided. Say where each line came from, like "from your notes" or "from our earlier chat". Ask what is wrong or out of date.
+4. From then on, do not ask for anything that list settles. Ask them to confirm it instead.
+
+What they correct or confirm counts as theirs. A line they never confirmed goes in the brief marked "(from context, not confirmed)". If you can see nothing and they paste nothing, skip this and start the method.
+
+## New, a feature, or adding to one
+
+- **New product or idea.** Run the method below from the top. The brief is version 1.
+- **A feature.** The product exists and they want one thing added or changed. Run the method, but about the feature:
+  - Frame: what the product is in one line (take it from what you already know), then what the feature is, who it is for, what happened that made them want it, and what it looks like when it is working well.
+  - Users: only the people this feature touches.
+  - Backbone: the main user's steps from the moment they need this feature to the moment they have what they came for. Include the steps just before and after if the product already handles them, and mark those "(exists today)".
+  - Details and the slice: the same as for a product. "Next 3 months" is the first version of the feature.
+  - Under What exists already, list what the feature has to fit with or must not break.
 - **Adding.** Ask them to paste the last brief. Read it, say in two lines where it stands, and ask what they want to add or change. Ask only about that. Use the method steps that apply. Print the whole brief again with the version number one higher, and list every change in the Change log. The new version starts as "not agreed yet" with the old quoted yes removed. Ask for their yes on this version only when both checks under "When it is done" hold. If they do not hold and they do not want to fill the gaps, it stays "not agreed yet".
 
 If they come back to this chat later, pick up where you stopped and tell them where they are.
@@ -80,7 +97,7 @@ Go in this order. The wording can flex. The order cannot.
 A version is done when both of these hold:
 
 - Product, Goal, Vision, Users and Backbone each have at least one line, or a named unknown.
-- Every backbone step has at least one feature in Next 3 months.
+- Every backbone step has at least one feature in Next 3 months. A step marked "(exists today)" does not need one.
 
 When they hold, say (for a later version, say "version <N>"): "I think we have a first version. Here is what is still open: <the open items>. Call it done, or keep going?"
 
@@ -92,6 +109,8 @@ Write it in exactly this format, inside one code block so it copies cleanly. It 
 
 - Put the why after each feature as "(why: ...)".
 - Mark a named unknown as "(unknown)".
+- Mark a line they never confirmed as "(from context, not confirmed)".
+- For a feature, the title is "Feature brief for <feature>, in <product>".
 - Write "Nothing here yet." under a heading with no lines.
 - Leave the date blank if you do not know it.
 - Do not add sections, advice or a summary.
@@ -103,7 +122,8 @@ Write it in exactly this format, inside one code block so it copies cleanly. It 
 - Status: <agreed on YYYY-MM-DD | not agreed yet>
 - Date: <YYYY-MM-DD>
 - Answered by: <name and role>
-- Kind: <new | addition to version N>
+- Kind: <new product | feature for <product> | addition to version N>
+- Context used: <what you read: their notes, an earlier brief, earlier chats, files. Or "none">
 
 > <their yes, word for word, if agreed>
 
@@ -122,6 +142,10 @@ Write it in exactly this format, inside one code block so it copies cleanly. It 
 ## Users
 
 - <kind of person>: <what they are trying to get done>
+
+## What exists already
+
+- <what is built and working today, or what this has to fit with>
 
 ## Backbone
 
