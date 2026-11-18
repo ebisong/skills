@@ -115,9 +115,38 @@ A version is done when all of these hold:
 - Every backbone step has at least one feature in Next 3 months. A step marked "(exists today)" does not need one.
 - Next 3 months holds at least one feature.
 
-When they hold, print the brief as a draft first, with the status "not agreed yet", so they agree to what they can read. Under it say (for a later version, say "version <N>"): "I think we have a first version. Here is what is still open: <the open items>. Call it done, or keep going?"
+Done is the minimum. It means every section has something in it. It does not mean the brief is ready to build from. Check that next.
 
-Only their own yes makes it agreed. If they say yes, print the brief again with "agreed on <date>" in the status line and their yes quoted under it. If they ask for changes, make them and run the checks above again. If they still hold, show the draft again before asking. If one no longer holds, say which and ask the question that fills it; do not ask for a yes until they all hold. If they wrap up early, write "not agreed yet" and print what you have.
+## How fleshed out it is
+
+Do this each time the done checks hold, before you ask for a yes. One pass through the method is rarely enough, so expect "not yet" the first time and say so plainly. This is a read on the brief, not on their idea.
+
+Go through every feature in Next 3 months. A feature is **clear** when all of these hold, and **thin** when any one does not:
+
+- It has a why that came from something that happened, not from "it would be nice".
+- They have said what the user does or sees there, in enough detail to picture it. A name alone, like "reporting" or "notifications", is thin.
+- They have said what happens when it goes wrong or there is nothing to show yet.
+- No open question or unsettled conflict under Still open touches it.
+
+Also count it against the brief if the Goal has no past event behind it, if the Backbone has fewer than three steps, or if no user is marked as the main one.
+
+Then give one verdict:
+
+- **Ready to hand off.** Every feature in Next 3 months is clear and nothing above counts against the brief.
+- **Not ready yet.** Anything else.
+
+Print the brief as a draft first, with the status "not agreed yet", so they can read what they are agreeing to. Under it, say one of these (for a later version, say "version <N>" in place of "first version"):
+
+- Ready: "I think this is ready to hand off. Here is what is still open: <the open items>. Call it done, or keep going?"
+- Not yet: "We have a first version, but I don't think it's ready to hand off. These are the parts I'd go deeper on first: <up to three, most important first, each with one line on what is missing>. Want to take the first one now, or come back to it later?"
+
+If they go deeper, take one thin item at a time. Ask what the user does or sees there, then what happens when it goes wrong, then what happened that made them want it. Three questions per item at most. After each item, say how many are left. When the list is empty, run this section again.
+
+If they say "later", or want to hand it off as it is, that is their decision. Do not argue. Ask "Call it done as it stands?" and take their yes the usual way. The brief records your verdict either way, so the builder knows what is thin.
+
+Still stay out of how to build it. "Thin" is about what they want, never about tools, effort or cost.
+
+Only their own yes makes it agreed. If they say yes, print the brief again with "agreed on <date>" in the status line and their yes quoted under it. If they ask for changes, make them and run the done checks and the readiness pass again. If the done checks still hold, show the draft again with the new verdict before asking. If one no longer holds, say which and ask the question that fills it; do not ask for a yes until they all hold. If they wrap up early, write "not agreed yet" and print what you have.
 
 ## The brief
 
@@ -125,6 +154,7 @@ Write it in exactly this format, inside one code block so it copies cleanly. It 
 
 - Put the why after each feature as "(why: ...)".
 - Mark a named unknown as "(unknown)".
+- Mark a thin feature as "(thin)" after its why, and list it under Go deeper next with what is missing. Write "Nothing. Ready to hand off." there when the verdict is ready.
 - Mark one line under Users as "(main user)". The Backbone is that person's day.
 - Mark a line they never confirmed as "(from context, not confirmed)".
 - For a feature, the title is "Feature brief for <feature>, in <product>".
@@ -140,6 +170,7 @@ Write it in exactly this format, inside one code block so it copies cleanly. It 
 - Date: <YYYY-MM-DD>
 - Answered by: <name and role>
 - Kind: <new product | feature for <product> | addition to version N>
+- Readiness: <ready to hand off | not ready yet, <N> thin>
 - Context used: <what you read: their notes, an earlier brief, earlier chats, files. Or "none">
 
 > <their yes, word for word, if agreed>
@@ -184,6 +215,10 @@ Write it in exactly this format, inside one code block so it copies cleanly. It 
 
 - <feature> (why: <reason, or "reason still open">)
 
+## Go deeper next
+
+- <thin feature or section>: <what is missing>
+
 ## Still open
 
 - <question or conflict>, and who can settle it
@@ -197,5 +232,5 @@ For version 1 the Change log holds one line: "<date>, version 1: first version."
 
 What goes after the code block depends on where they are:
 
-- A draft waiting for their yes: add only the "Call it done, or keep going?" question from "When it is done".
-- An agreed brief, or one they wrapped up early: add only this: "Copy everything in the box and send it to whoever is building this. If anything in it is wrong, tell me what and I'll fix it. When you think of more, come back and say you're adding to it."
+- A draft waiting for their yes: add only the ready or not-yet lines from "How fleshed out it is".
+- An agreed brief, or one they wrapped up early: add only this: "Copy everything in the box and send it to whoever is building this. If anything in it is wrong, tell me what and I'll fix it. When you think of more, come back and say you're adding to it." If the verdict was "not ready yet", add one more line: "Most briefs take two or three passes. Next time, paste this back in and we'll start with the parts under Go deeper next."
