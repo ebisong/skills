@@ -1,6 +1,6 @@
 ---
 name: discovery
-description: Interview someone about a product, an idea or one feature, one question at a time, and write a Markdown brief a builder can work from. Use for a new project, a new feature, or adding to an earlier brief.
+description: Interview someone about a product, an idea or one feature, one question at a time, and write a Markdown brief a builder can work from. Use for a new project, a feature, or adding to an earlier brief.
 ---
 
 # Discovery
