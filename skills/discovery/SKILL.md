@@ -112,6 +112,7 @@ Write it in exactly this format, inside one code block so it copies cleanly. It 
 
 - Put the why after each feature as "(why: ...)".
 - Mark a named unknown as "(unknown)".
+- Mark one line under Users as "(main user)". The Backbone is that person's day.
 - Mark a line they never confirmed as "(from context, not confirmed)".
 - For a feature, the title is "Feature brief for <feature>, in <product>".
 - Write "Nothing here yet." under a heading with no lines.
@@ -144,6 +145,7 @@ Write it in exactly this format, inside one code block so it copies cleanly. It 
 
 ## Users
 
+- <kind of person> (main user): <what they are trying to get done>
 - <kind of person>: <what they are trying to get done>
 
 ## What exists already
