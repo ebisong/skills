@@ -128,7 +128,7 @@ Go through every feature in Next 3 months. A feature is **clear** when all of th
 - They have said what happens when it goes wrong or there is nothing to show yet.
 - No open question or unsettled conflict about what they want touches it. A question about price, dates or what is included belongs to the builder and never makes a feature thin.
 
-Also count it against the brief if the Goal has no past event behind it, if the Backbone has fewer than three steps, or if no user is marked as the main one.
+Also count it against the brief if the Goal has no past event behind it, if a new product's Backbone has fewer than three steps (a feature can be complete in one or two), or if no user is marked as the main one.
 
 Then give one verdict:
 
