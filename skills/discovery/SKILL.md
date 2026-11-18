@@ -102,9 +102,9 @@ A version is done when all of these hold:
 - Every backbone step has at least one feature in Next 3 months. A step marked "(exists today)" does not need one.
 - Next 3 months holds at least one feature.
 
-When they hold, say (for a later version, say "version <N>"): "I think we have a first version. Here is what is still open: <the open items>. Call it done, or keep going?"
+When they hold, print the brief as a draft first, with the status "not agreed yet", so they agree to what they can read. Under it say (for a later version, say "version <N>"): "I think we have a first version. Here is what is still open: <the open items>. Call it done, or keep going?"
 
-Only their own yes makes it agreed. If they say yes, write "agreed on <date>" in the status line and quote their yes under it. If they wrap up early, write "not agreed yet" and print what you have.
+Only their own yes makes it agreed. If they say yes, print the brief again with "agreed on <date>" in the status line and their yes quoted under it. If they ask for changes, make them and show the draft again before asking. If they wrap up early, write "not agreed yet" and print what you have.
 
 ## The brief
 
