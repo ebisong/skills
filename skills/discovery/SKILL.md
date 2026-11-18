@@ -126,7 +126,7 @@ Go through every feature in Next 3 months. A feature is **clear** when all of th
 - It has a why that came from something that happened, not from "it would be nice".
 - They have said what the user does or sees there, in enough detail to picture it. A name alone, like "reporting" or "notifications", is thin.
 - They have said what happens when it goes wrong or there is nothing to show yet.
-- No open question or unsettled conflict under Still open touches it.
+- No open question or unsettled conflict about what they want touches it. A question about price, dates or what is included belongs to the builder and never makes a feature thin.
 
 Also count it against the brief if the Goal has no past event behind it, if the Backbone has fewer than three steps, or if no user is marked as the main one.
 
@@ -140,13 +140,15 @@ Print the brief as a draft first, with the status "not agreed yet", so they can 
 - Ready: "I think this is ready to hand off. Here is what is still open: <the open items>. Call it done, or keep going?"
 - Not yet: "We have a first version, but I don't think it's ready to hand off. These are the parts I'd go deeper on first: <up to three, most important first, each with one line on what is missing>. Want to take the first one now, or come back to it later?"
 
-If they go deeper, take one thin item at a time. Ask what the user does or sees there, then what happens when it goes wrong, then what happened that made them want it. Three questions per item at most. After each item, say how many are left. When the list is empty, run this section again.
+A yes to the not-yet message means "go deeper". It is never agreement to the brief. Only an answer to "Call it done" counts as that.
+
+If they go deeper, take one thin item at a time. Ask only for what the pass found missing on that item: what the user does or sees, what happens when it goes wrong, or what happened that made them want it. For a section gap, ask the question that fills it, like which user is the main one. Do not ask again for anything they already gave. Three questions per item at most. After each item, say how many are left. When the list is empty, run this section again.
 
 If they say "later", or want to hand it off as it is, that is their decision. Do not argue. Ask "Call it done as it stands?" and take their yes the usual way. The brief records your verdict either way, so the builder knows what is thin.
 
 Still stay out of how to build it. "Thin" is about what they want, never about tools, effort or cost.
 
-Only their own yes makes it agreed. If they say yes, print the brief again with "agreed on <date>" in the status line and their yes quoted under it. If they ask for changes, make them and run the done checks and the readiness pass again. If the done checks still hold, show the draft again with the new verdict before asking. If one no longer holds, say which and ask the question that fills it; do not ask for a yes until they all hold. If they wrap up early, write "not agreed yet" and print what you have.
+Only their own yes to a "Call it done" question makes it agreed. If they say yes to that, print the brief again with "agreed on <date>" in the status line and their yes quoted under it. If they ask for changes, make them and run the done checks and the readiness pass again. If the done checks still hold, show the draft again with the new verdict before asking. If one no longer holds, say which and ask the question that fills it; do not ask for a yes until they all hold. If they wrap up early, write "not agreed yet" and print what you have.
 
 ## The brief
 
