@@ -35,7 +35,7 @@ Add `-g` to install them globally instead of into the current project.
 
 Each skill is also a zip you can upload. This is the one to use if you're not a developer.
 
-1. Download the zip: [wireframes.zip](https://github.com/ebisong/skills/releases/download/downloads/wireframes.zip) or [well-formed-outcome.zip](https://github.com/ebisong/skills/releases/download/downloads/well-formed-outcome.zip). Don't unzip it.
+1. Download the zip: [wireframes.zip](https://github.com/ebisong/skills/releases/download/downloads/wireframes.zip), [discovery.zip](https://github.com/ebisong/skills/releases/download/downloads/discovery.zip) or [well-formed-outcome.zip](https://github.com/ebisong/skills/releases/download/downloads/well-formed-outcome.zip). Don't unzip it.
 2. In Claude, open Settings > Capabilities and turn on "Code execution and file creation".
 3. Open Customize > Skills, click the "+" button, pick "Create skill", then "Upload a skill", and choose the zip.
 4. Start a new chat and ask for it by name, like "use the wireframes skill on these documents".
@@ -46,6 +46,7 @@ On a Team or Enterprise plan, an owner has to allow skills first under Organizat
 
 - **[well-formed-outcome](skills/well-formed-outcome/SKILL.md).** Outcome framing comes from NLP, neuro-linguistic programming, which looks at how the words we use shape what we do. AI agents are built from our language, so the seven questions that make a goal clear to a person make it clear to an agent too. This skill takes you through them before you build. I run it before every spec I write. `/skills:well-formed-outcome` in Claude Code.
 - **[wireframes](skills/wireframes/SKILL.md).** Reads a statement of work, a brief, or call notes and draws every screen as one HTML file you open in a browser. Each screen cites the requirement it covers and lists the decisions still open, and there's a sign-off sheet at the end. I get the wireframes signed before I write any code. It's built for whoever is talking to the client, so there's nothing to set up. `/skills:wireframes` in Claude Code.
+- **[discovery](skills/discovery/SKILL.md).** Interviews someone about a product or idea, one question at a time, and writes a Markdown roadmap brief I can build from. It walks through a typical day for the main user, puts the features under each step with the reason for each one, and splits them into the next 3 months and later. A client can run it without me, then come back and add to the same brief when they think of more. `/skills:discovery` in Claude Code, or paste the file into ChatGPT.
 
 ## Built to Market
 
