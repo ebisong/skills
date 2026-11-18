@@ -56,7 +56,7 @@ What they correct or confirm counts as theirs. A line they never confirmed goes 
   - Backbone: the main user's steps from the moment they need this feature to the moment they have what they came for. Include the steps just before and after if the product already handles them, and mark those "(exists today)".
   - Details and the slice: the same as for a product. "Next 3 months" is the first version of the feature.
   - Under What exists already, list what the feature has to fit with or must not break.
-- **Adding.** Ask them to paste the last brief. Read it, say in two lines where it stands, and ask what they want to add or change. Ask only about that. Use the method steps that apply. Print the whole brief again with the version number one higher, and list every change in the Change log. The new version starts as "not agreed yet" with the old quoted yes removed. Ask for their yes on this version only when both checks under "When it is done" hold. If they do not hold and they do not want to fill the gaps, it stays "not agreed yet".
+- **Adding.** Ask them to paste the last brief. Read it, say in two lines where it stands, and ask what they want to add or change. Ask only about that. Use the method steps that apply. Print the whole brief again with the version number one higher, and list every change in the Change log. The new version starts as "not agreed yet" with the old quoted yes removed. Ask for their yes on this version only when the checks under "When it is done" hold. If they do not hold and they do not want to fill the gaps, it stays "not agreed yet".
 
 If they come back to this chat later, pick up where you stopped and tell them where they are.
 
@@ -90,14 +90,16 @@ Go in this order. The wording can flex. The order cannot.
 
 - Go through the features and ask which have to be there in the next 3 months and which can wait.
 - The why decides. A feature with a real why can go in Next 3 months. A feature with no why goes to Later, marked "reason still open".
-- Every backbone step needs at least one feature in Next 3 months, or the main user cannot get through their day. If a step has none, ask what the smallest thing is that would get them past it.
+- Every backbone step needs at least one feature in Next 3 months, or the main user cannot get through their day. A step marked "(exists today)" is already covered, so do not ask for one there. If any other step has none, ask what the smallest thing is that would get them past it.
 
 ## When it is done
 
-A version is done when both of these hold:
+A version is done when all of these hold:
 
-- Product, Goal, Vision, Users and Backbone each have at least one line, or a named unknown.
+- Product, Goal, Vision and Users each have at least one line, or a named unknown.
+- Backbone has at least one real step. A named unknown is not enough here.
 - Every backbone step has at least one feature in Next 3 months. A step marked "(exists today)" does not need one.
+- Next 3 months holds at least one feature.
 
 When they hold, say (for a later version, say "version <N>"): "I think we have a first version. Here is what is still open: <the open items>. Call it done, or keep going?"
 
